@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7A640F6C-B241-40B6-897C-AC910F849430/68/26123b43/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/d4/7fa4cf85/IComparable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/4f/053d4227/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/NoiseArrayGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunTileTypes.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/MapElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/TileTypeEnum.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonDiskSampler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonSampler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/MapEdge.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/MapGraph.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/UIFrameHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapTemplates.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/Map.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapVisualizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/MapNode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/PriorityQ.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/DijkstraPathfinder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lYTB4ieFTVmxCpduartqSlRLXS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="" />
+      <created>1607772887042</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607772887042</updated>
+      <workItem from="1607772894762" duration="6423000" />
+      <workItem from="1607781659675" duration="648000" />
+      <workItem from="1607782518486" duration="1114000" />
+      <workItem from="1607809502118" duration="3349000" />
+      <workItem from="1607817236339" duration="1773000" />
+      <workItem from="1607858474740" duration="18275000" />
+      <workItem from="1607885494515" duration="47000" />
+      <workItem from="1607887140167" duration="7627000" />
+      <workItem from="1607897864531" duration="5997000" />
+      <workItem from="1607977021878" duration="2008000" />
+      <workItem from="1607989693541" duration="1452000" />
+      <workItem from="1608061412727" duration="3797000" />
+      <workItem from="1608114578870" duration="607000" />
+      <workItem from="1608125213282" duration="9454000" />
+      <workItem from="1608150158562" duration="2223000" />
+      <workItem from="1608232109733" duration="7111000" />
+      <workItem from="1608279399437" duration="7016000" />
+      <workItem from="1608370402788" duration="7453000" />
+      <workItem from="1608464547634" duration="25216000" />
+      <workItem from="1608544590848" duration="599000" />
+      <workItem from="1608742652300" duration="1165000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="715" y="224" width="999" height="627" key="#xdebugger.evaluate" timestamp="1608478857748">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="715" y="224" width="999" height="627" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608478857748" />
+    <state width="1877" height="122" key="GridCell.Tab.0.bottom" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.0.center" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.0.left" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.0.right" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.1.bottom" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.1.center" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.1.left" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.1.right" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.2.bottom" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.2.center" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.2.left" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.2.right" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.3.bottom" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.3.center" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.3.left" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="122" key="GridCell.Tab.3.right" timestamp="1608501008271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="122" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state x="2590" y="198" key="RiderGenerateDialog" timestamp="1608742912117">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2590" y="198" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608742912117" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1608479944036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608479944036" />
+    <state x="412" y="333" width="1458" height="1027" key="dock-window-1" timestamp="1607991147090">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="412" y="333" width="1458" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607991147090" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608479963321">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608479963321" />
+  </component>
+</project>
