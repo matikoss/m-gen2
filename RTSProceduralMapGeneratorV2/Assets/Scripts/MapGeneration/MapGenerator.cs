@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using MapEntities;
 using tools;
 using UnityEngine;
@@ -39,12 +41,13 @@ namespace MapGeneration
         public void GenerateMap(int seed)
         {
             map = new Map(128, 128, seed, 2);
-            GenerateAssymetricMap(MapConstants.MAP_SMALL_SIZE, MapConstants.MAP_SMALL_SIZE, seed, WATER_PARAM,
+            GenerateSymmetricMap(MapConstants.MAP_SMALL_SIZE, MapConstants.MAP_SMALL_SIZE, seed, WATER_PARAM,
                 MOUNTAIN_PARAM, TREE_PARAM);
             mapVisualizer.DrawMap(map);
             List<string> p2 = new List<string> {"person", "computer"};
             List<string> p3 = new List<string> {"person", "computer", "computer"};
             dijkstraTest(map);
+            calculateAvgDistanceFromRes(map, map.Players);
             wme.ExportMapToFile(map, p2, "mapaTestowaZapis");
         }
 
@@ -56,34 +59,114 @@ namespace MapGeneration
                 noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, 7, 0.5f, 2, new Vector2(0, 0));
             float[,] moistureNoise =
                 noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, 7, 0.5f, 10, new Vector2(0, 0));
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    if (elevationNoise[x, y] <= waterParameter)
-                    {
-                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Water, new Vector2Int(x, y)));
-                    }
-                    else if (elevationNoise[x, y] >= mountainParameter)
-                    {
-                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Mountain, new Vector2Int(x, y)));
-                    }
-                    else if (elevationNoise[x, y] > waterParameter
-                             && elevationNoise[x, y] < mountainParameter
-                             && moistureNoise[x, y] > treeParameter)
-                    {
-                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Tree, new Vector2Int(x, y)));
-                    }
-                    else
-                    {
-                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Empty, new Vector2Int(x, y)));
-                    }
-                }
-            }
-
+            AssignMapTileToNoise(elevationNoise, moistureNoise, waterParameter, mountainParameter, treeParameter);
             PlacePlayers();
             CreateSpawnPoints();
             PlaceResources(map, 30);
+        }
+
+        private void GenerateSymmetricMap(int width, int height, int seed, float waterParameter,
+            float mountainParameter,
+            float treeParameter)
+        {
+            float[,] elevationNoise =
+                noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, 7, 0.5f, 2, new Vector2(0, 0));
+            float[,] moistureNoise =
+                noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, 7, 0.5f, 10, new Vector2(0, 0));
+
+            AssignMapTileToNoise(elevationNoise, moistureNoise, waterParameter, mountainParameter, treeParameter);
+
+            PlaceResources(map, 30);
+            MapElement newElement;
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width - y; x++)
+                {
+                    MapElement current = map.Map1[new Vector2Int(x, y)];
+                    if (current.Type == TileType.Water)
+                    {
+                        newElement = new MapElement(TileType.Water, new Vector2Int(height - 1 - x, width - 1 - y));
+                    }
+                    else if (current.Type == TileType.Tree)
+                    {
+                        newElement = new MapElement(TileType.Tree, new Vector2Int(height - 1 - x, width - 1 - y));
+                    }
+                    else if (current.Type == TileType.Mountain)
+                    {
+                        newElement = new MapElement(TileType.Mountain, new Vector2Int(height - 1 - x, width - 1 - y));
+                    }
+                    else if (current.Type == TileType.Copper)
+                    {
+                        newElement = new MapElement(TileType.Copper, new Vector2Int(height - 1 - x, width - 1 - y));
+                    }
+                    else
+                    {
+                        newElement = new MapElement(TileType.Empty, new Vector2Int(height - 1 - x, width - 1 - y));
+                    }
+
+                    map.Map1.Remove(new Vector2Int(height - 1 - x, width - 1 - y));
+                    map.Map1.Add(new Vector2Int(height - 1 - x, width - 1 - y), newElement);
+                }
+            }
+
+            PlacePlayersOnSymmetricMap(map);
+        }
+
+        private void PlacePlayersOnSymmetricMap(Map map)
+        {
+            DijkstraPathfinder dp = new DijkstraPathfinder();
+            MapGraph graph = map.ToMapGraph();
+            bool placed = false;
+            for (int y = 10; y < map.Height / 2; y++)
+            {
+                for (int x = 10; x < (map.Width / 2); x++)
+                {
+                    var startIndex = graph.MapNodes.IndexOf(new MapNode(map.Map1[new Vector2Int(x, y)]));
+                    var endIndex =
+                        graph.MapNodes.IndexOf(
+                            new MapNode(map.Map1[new Vector2Int(map.Height - 1 - x, map.Width - 1 - y)]));
+                    if (startIndex == -1 || endIndex == -1)
+                    {
+                        continue;
+                    }
+
+                    MapNode start = graph.MapNodes[startIndex];
+                    MapNode end = graph.MapNodes[endIndex];
+                    dp.shortesPath(graph, start, end);
+                    if (dp.pathDistance != int.MaxValue)
+                    {
+                        List<Player> players = new List<Player>()
+                        {
+                            new Player(0, new Vector2Int(x, y), "dwarf", "goldhoof-clan"),
+                            new Player(1, new Vector2Int(map.Height - 1 - x, map.Width - 1 - y), "goblin",
+                                "dreadskull-tribe")
+                        };
+                        map.Players = players;
+                        foreach (var p in map.Players)
+                        {
+                            if (map.Map1.ContainsKey(p.StartingPosition))
+                            {
+                                map.Map1.Remove(p.StartingPosition);
+                            }
+
+                            map.Map1.Add(p.StartingPosition, new MapElement(TileType.Spawn, p.StartingPosition));
+                            CreatePlayerSpawn(p.StartingPosition, map);
+                        }
+
+                        placed = true;
+                    }
+
+                    if (placed)
+                    {
+                        break;
+                    }
+                }
+
+                if (placed)
+                {
+                    break;
+                }
+            }
         }
 
         private void PlacePlayers()
@@ -131,6 +214,29 @@ namespace MapGeneration
             }
         }
 
+        private void CreatePlayerSpawn(Vector2Int spawnPosition, Map map)
+        {
+            for (int i = -3; i <= 3; i++)
+            {
+                for (int j = -3; j <= 3; j++)
+                {
+                    if (!(i == 0 && j == 0))
+                    {
+                        var v = new Vector2Int(spawnPosition.x + i, spawnPosition.y + j);
+                        map.Map1.Remove(v);
+                        if (i == 2 && j == 2)
+                        {
+                            map.Map1.Add(v, new MapElement(TileType.Copper, v));
+                        }
+                        else
+                        {
+                            map.Map1.Add(v, new MapElement(TileType.Empty, v));
+                        }
+                    }
+                }
+            }
+        }
+
         private void PlaceResources(Map map, int r)
         {
             PoissonSampler ps = new PoissonSampler(map.Width, map.Height, r);
@@ -158,9 +264,80 @@ namespace MapGeneration
             Debug.Log(dp.pathDistance);
         }
 
-        private void calculateAvgDistanceFromRes(List<Player> players)
+        private void calculateAvgDistanceFromRes(Map map, List<Player> players)
         {
-            
+            MapGraph tmpGraph = map.ToMapGraph();
+            foreach (var player in players)
+            {
+                List<MapNode> tmpNodesList = new List<MapNode>();
+                var start = tmpGraph.MapNodes.IndexOf(new MapNode(map.Map1[player.StartingPosition]));
+                MapNode playerSpawn = tmpGraph.MapNodes[start];
+                tmpNodesList = dp.dijkstraCalculateDistances(tmpGraph, playerSpawn);
+                List<MapNode> resources = new List<MapNode>();
+                foreach (var node in tmpNodesList)
+                {
+                    if (node.Element.Type == TileType.Copper)
+                    {
+                        resources.Add(node);
+                    }
+                }
+
+                double sum = 0;
+                foreach (var res in resources)
+                {
+                    sum += res.DistanceFromStart;
+                }
+
+                player.AvgDistanceFromResources = sum / resources.Count;
+                if (player.AvgDistanceFromResources < 0 && player.AvgDistanceFromResources > (map.Height + map.Width))
+                {
+                    player.AvgDistanceFromResources = double.MinValue;
+                }
+
+                Debug.Log(player.AvgDistanceFromResources);
+            }
+        }
+
+        private bool CheckIfAllResourcesAvailable(List<Player> players)
+        {
+            foreach (var p in players)
+            {
+                if (Math.Abs(p.AvgDistanceFromResources - Double.MinValue) < 0.1)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void AssignMapTileToNoise(float[,] elevationNoise, float[,] moistureNoise,
+            float waterParameter, float mountainParameter, float treeParameter)
+        {
+            for (int y = 0; y < map.Height; y++)
+            {
+                for (int x = 0; x < map.Width; x++)
+                {
+                    if (elevationNoise[x, y] <= waterParameter)
+                    {
+                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Water, new Vector2Int(x, y)));
+                    }
+                    else if (elevationNoise[x, y] >= mountainParameter)
+                    {
+                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Mountain, new Vector2Int(x, y)));
+                    }
+                    else if (elevationNoise[x, y] > waterParameter
+                             && elevationNoise[x, y] < mountainParameter
+                             && moistureNoise[x, y] > treeParameter)
+                    {
+                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Tree, new Vector2Int(x, y)));
+                    }
+                    else
+                    {
+                        map.Map1.Add(new Vector2Int(x, y), new MapElement(TileType.Empty, new Vector2Int(x, y)));
+                    }
+                }
+            }
         }
     }
 }

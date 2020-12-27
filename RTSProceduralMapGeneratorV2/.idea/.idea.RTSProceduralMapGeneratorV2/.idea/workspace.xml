@@ -1,11 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="" />
+    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MapScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/03/0330d4b0e998f142aa37ddaa99f1ced7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0b/0b6b27a5dd25ea72235180b5d4b06eaf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0f/0f7681d6eb34de1b921a762547dc14bb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/15/15d3487a29608df86355d74c6506c2c3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/16/165715a334063a00412f8ec7e94d5f8d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/21/21a5b9cd7b9e32a2923035f024abdb0e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/28/2875d973064dbe3ceed142e64844f309" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/29/29d6af6e78a975c2610b2a878abf0744" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/2a/2afd05fcc0cdbfe147e092e9a7926403" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/33/3399c61e76e332e90c3bdb7c0017d601" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/3a/3acb6978b24e705ab7b2f7d4beaf4f0d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/3c/3c86d7ade64358eafd1aac559411d817" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/40/409aff093cbddf98ac9594b8a9cecdcd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4d/4d2aff633486eb5971382ddbb54b0ef2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/62/62e85716d1e75aa6f8de9768b64929b6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/66/664fa022fac266fd1c7d25cededdfb79" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/71/71f7bf5b96e9bb27171d046432512abd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/76/7647238807609583040585ed9e670d94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/7a/7a016b4944952a4e44cc7553001875c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/7c/7cea34077bf5345e9a35f5680e0db522" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/7d/7d1a59e9b21814759afa8d21f1d598fe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/86/8672ef57f551b1da189f1bf2db2205d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/88/88bfd2d0c07c23f98a758f88f5c90329" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8b/8b4360cb0fc467123560f3ec3f63ac72" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8e/8e5c30b9c18b13c7bd6f358a8d6a48f1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/97/9731d41b2088f60eda0daec9d6fc8a1e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/a7/a777453499cb7d04f30e45a1a22b0a8b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/aa/aa44959fb801315386f2e86e6e3dbf28" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/aa/aa758ac10808ac3aa37dba87b0c91f57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/ce/cee2b6be28c0131bba7e79b50bd8bed0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/e8/e84981c74faf818af6a727d0366f9e3e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/ed/ed70a62a4a9db9b6eaf7b6809ede3d5c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/f2/f2e4a7204a695c5c20a621f3fc17888b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/fa/fa0a699e974938218ecac1abbad87145" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/fb/fb7b740b9b5d5c8df89e5981bbe906d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/46b7a0-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/46b7a0-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/d69a67-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/d69a67-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Unity.2D.Tilemap.Extras.Editor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Unity.2D.Tilemap.Extras.Editor.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Unity.2D.Tilemap.Extras.Placeholder.EditorTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Unity.2D.Tilemap.Extras.Placeholder.EditorTests.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Unity.2D.Tilemap.Extras.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Unity.2D.Tilemap.Extras.csprojAssemblyReference.cache" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7A640F6C-B241-40B6-897C-AC910F849430/68/26123b43/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -38,6 +109,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1lYTB4ieFTVmxCpduartqSlRLXS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -100,6 +172,10 @@
       <workItem from="1608464547634" duration="25216000" />
       <workItem from="1608544590848" duration="599000" />
       <workItem from="1608742652300" duration="1165000" />
+      <workItem from="1608806964592" duration="21000" />
+      <workItem from="1608807084274" duration="7623000" />
+      <workItem from="1608997644549" duration="15028000" />
+      <workItem from="1609062401816" duration="3073000" />
     </task>
     <servers />
   </component>
@@ -108,6 +184,18 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
@@ -116,70 +204,70 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="715" y="224" width="999" height="627" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608478857748" />
-    <state width="1877" height="122" key="GridCell.Tab.0.bottom" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.0.center" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.0.left" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.0.right" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.1.bottom" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.1.bottom" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.1.center" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.1.center" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.1.left" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.1.left" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.1.right" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.1.right" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.2.bottom" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.2.bottom" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.2.center" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.2.center" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.2.left" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.2.left" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.2.right" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.2.right" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.3.bottom" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.3.bottom" timestamp="1609019229876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.3.center" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229876" />
+    <state width="1877" height="234" key="GridCell.Tab.3.center" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.3.left" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.3.left" timestamp="1609019229875">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
-    <state width="1877" height="122" key="GridCell.Tab.3.right" timestamp="1608501008271">
+    <state width="1877" height="234" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229875" />
+    <state width="1877" height="234" key="GridCell.Tab.3.right" timestamp="1609019229876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="122" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608501008271" />
+    <state width="1877" height="234" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609019229876" />
     <state x="2590" y="198" key="RiderGenerateDialog" timestamp="1608742912117">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -192,9 +280,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="412" y="333" width="1458" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607991147090" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608479963321">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609017143832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608479963321" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609017143832" />
   </component>
 </project>
