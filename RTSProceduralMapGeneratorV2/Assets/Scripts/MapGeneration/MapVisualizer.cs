@@ -16,6 +16,7 @@ namespace MapGeneration
         public Tile SpawnTile;
         public Tile BCopperTile;
         public Tile BGoldTile;
+        public Tile EmptyTile;
 
         void Start()
         {
@@ -35,31 +36,48 @@ namespace MapGeneration
             {
                 if (mapTile.Type == TileType.Empty)
                 {
-                    BaseMap.SetTile(new Vector3Int(mapTile.Position.x,map.Height - mapTile.Position.y, 0), GrassTile);
+                    BaseMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0), GrassTile);
                 }
                 else if (mapTile.Type == TileType.Mountain)
                 {
-                    BaseMap.SetTile(new Vector3Int(mapTile.Position.x,map.Height - mapTile.Position.y, 0), MountainTile);
+                    BaseMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
+                        MountainTile);
                 }
                 else if (mapTile.Type == TileType.Water)
                 {
-                    BaseMap.SetTile(new Vector3Int(mapTile.Position.x,map.Height - mapTile.Position.y, 0), WaterTile);
+                    BaseMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0), WaterTile);
                 }
                 else if (mapTile.Type == TileType.Tree)
                 {
-                    TreeMap.SetTile(new Vector3Int(mapTile.Position.x,map.Height - mapTile.Position.y, 0), TreeTile);
-                }else if (mapTile.Type == TileType.Gold)
+                    TreeMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0), TreeTile);
+                }
+                else if (mapTile.Type == TileType.Gold)
                 {
-                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x,map.Height - mapTile.Position.y, 0), BGoldTile);
-                }else if (mapTile.Type == TileType.Copper)
+                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
+                        BGoldTile);
+                }
+                else if (mapTile.Type == TileType.Copper)
                 {
-                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x,map.Height - mapTile.Position.y, 0), BCopperTile);
+                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
+                        BCopperTile);
                 }
             }
+
             foreach (Player p in map.Players)
             {
-                BaseMap.SetTile(new Vector3Int(p.StartingPosition.x,map.Height -p.StartingPosition.y,0), SpawnTile);   
+                BaseMap.SetTile(new Vector3Int(p.StartingPosition.x, map.Height - p.StartingPosition.y, 0), SpawnTile);
             }
+        }
+
+        public void ClearGridMap()
+        {
+            
+            BaseMap.ClearAllTiles();
+            TreeMap.ClearAllTiles();
+            ResourcesMap.ClearAllTiles();
+            BaseMap.RefreshAllTiles();
+            TreeMap.RefreshAllTiles();
+            ResourcesMap.RefreshAllTiles();
         }
     }
 }

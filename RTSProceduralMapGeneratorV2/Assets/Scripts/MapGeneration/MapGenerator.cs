@@ -112,12 +112,12 @@ namespace MapGeneration
             PlacePlayersOnSymmetricMap(map);
         }
 
-        private void PlacePlayersOnSymmetricMap(Map map)
+        private bool PlacePlayersOnSymmetricMap(Map map)
         {
             DijkstraPathfinder dp = new DijkstraPathfinder();
             MapGraph graph = map.ToMapGraph();
             bool placed = false;
-            for (int y = 10; y < map.Height / 2; y++)
+            for (int y = 10; y < (map.Height / 2); y++)
             {
                 for (int x = 10; x < (map.Width / 2); x++)
                 {
@@ -153,20 +153,12 @@ namespace MapGeneration
                             CreatePlayerSpawn(p.StartingPosition, map);
                         }
 
-                        placed = true;
+                        return true;
                     }
-
-                    if (placed)
-                    {
-                        break;
-                    }
-                }
-
-                if (placed)
-                {
-                    break;
                 }
             }
+
+            return false;
         }
 
         private void PlacePlayers()
@@ -216,15 +208,15 @@ namespace MapGeneration
 
         private void CreatePlayerSpawn(Vector2Int spawnPosition, Map map)
         {
-            for (int i = -3; i <= 3; i++)
+            for (int i = -5; i <= 5; i++)
             {
-                for (int j = -3; j <= 3; j++)
+                for (int j = -5; j <= 5; j++)
                 {
                     if (!(i == 0 && j == 0))
                     {
                         var v = new Vector2Int(spawnPosition.x + i, spawnPosition.y + j);
                         map.Map1.Remove(v);
-                        if (i == 2 && j == 2)
+                        if (i == 4 && j == 4)
                         {
                             map.Map1.Add(v, new MapElement(TileType.Copper, v));
                         }
@@ -247,6 +239,23 @@ namespace MapGeneration
                 {
                     map.Map1.Remove(sample);
                     map.Map1.Add(sample, new MapElement(TileType.Copper, sample));
+                    for (int i = -1; i <= 1; i++)
+                    {
+                        for (int j = -1; j <= 1; j++)
+                        {
+                            if (i == 0 && j == 0)
+                            {
+                                continue;
+                            }
+
+                            Vector2Int v = new Vector2Int(sample.x + i, sample.y + j);
+                            if ((v.x >= 0 && v.x < map.Width) && (v.y >= 0 && v.y < map.Height))
+                            {
+                                map.Map1.Remove(v);
+                                map.Map1.Add(v, new MapElement(TileType.Empty, v));
+                            }
+                        }
+                    }
                 }
             }
         }

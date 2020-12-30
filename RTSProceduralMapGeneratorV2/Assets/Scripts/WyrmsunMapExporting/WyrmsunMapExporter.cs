@@ -40,14 +40,14 @@ namespace WyrmsunMapExporting
                         startCopper, startStone, player.Race, player.Faction, "passive"));
                 }
 
-                file.Write(WyrmsunMapTemplates.PlayerData(31, new Vector2Int(0, 0), 0,
+                file.Write(WyrmsunMapTemplates.PlayerData(63, new Vector2Int(0, 0), 0,
                     0, 0, "neutral", "ai-passive"));
                 file.Write("\n");
                 file.Write(WyrmsunMapTemplates.LoadTileset("scripts/tilesets/conifer_forest_summer.lua"));
                 file.Write(WyrmsunMapTemplates.TILES_MAP);
-                for (int x = 0; x < map.Width; x++)
+                for (int y = 0; y < map.Height; y++)
                 {
-                    for (int y = 0; y < map.Height; y++)
+                    for (int x = 0; x < map.Width; x++)
                     {
                         var vec = new Vector2Int(x, y);
                         var tile = map.Map1[vec];
@@ -86,8 +86,8 @@ namespace WyrmsunMapExporting
                 {
                     if (t.Type == TileType.Copper)
                     {
-                        file.Write(WyrmsunMapTemplates.CreateResource(WyrmUnitsTypes.BIG_COPPER, 31, t.Position,
-                            50000));
+                        file.Write(WyrmsunMapTemplates.CreateResource(WyrmUnitsTypes.BIG_COPPER, 63, t.Position,
+                            5000));
                     }
                 }
 
@@ -105,7 +105,7 @@ namespace WyrmsunMapExporting
                     }
                 }
 
-                file.Write("\n");
+                file.Write("\n\n\n\n");
             }
         }
 

@@ -12,6 +12,8 @@
           </e>
           <e p="Controllers" t="Include">
             <e p="CameraController.cs" t="Include" />
+            <e p="MainScreenController.cs" t="Include" />
+            <e p="OptionsScreenController.cs" t="Include" />
             <e p="UIFrameHandler.cs" t="Include" />
           </e>
           <e p="MapEntities" t="Include">
