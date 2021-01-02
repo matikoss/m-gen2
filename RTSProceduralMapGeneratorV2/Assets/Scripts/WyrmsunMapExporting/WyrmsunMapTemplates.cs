@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace WyrmsunMapExporting
 {
@@ -12,6 +13,10 @@ namespace WyrmsunMapExporting
         public static readonly string TILES_MAP = "-- Tiles Map\n";
 
         public static readonly string DEFAULT_HEADER = "-- set map default stat and map sound for unit types\n";
+
+        public static readonly string PLAYER_PERSON = "person";
+
+        public static readonly string PLAYER_COMPUTER = "computer";
 
         public static readonly string UNITS_HEADER =
             "-- place units\nif (MapUnitsInit ~= nil) then MapUnitsInit() end\n";

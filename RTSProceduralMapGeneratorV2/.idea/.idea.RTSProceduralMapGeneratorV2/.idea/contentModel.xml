@@ -20,6 +20,7 @@
             <e p="Map.cs" t="Include" />
             <e p="MapElement.cs" t="Include" />
             <e p="Player.cs" t="Include" />
+            <e p="PlayerTypeEnum.cs" t="Include" />
             <e p="TileTypeEnum.cs" t="Include" />
           </e>
           <e p="MapGeneration" t="Include">
@@ -36,8 +37,10 @@
             <e p="PriorityQ.cs" t="Include" />
           </e>
           <e p="WyrmsunMapExporting" t="Include">
+            <e p="WyrmRaceTypes.cs" t="Include" />
             <e p="WyrmsunMapExporter.cs" t="Include" />
             <e p="WyrmsunMapTemplates.cs" t="Include" />
+            <e p="WyrmsunRace.cs" t="Include" />
             <e p="WyrmTerrainTypes.cs" t="Include" />
             <e p="WyrmUnitsTypes.cs" t="Include" />
           </e>

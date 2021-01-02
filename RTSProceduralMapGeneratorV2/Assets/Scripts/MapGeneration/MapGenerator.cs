@@ -17,9 +17,13 @@ namespace MapGeneration
 
         public NoiseArrayGenerator noiseGenerator;
         public MapVisualizer mapVisualizer;
+        public MainScreenController MainScreen;
+        public OptionsScreenController OptionsScreen;
         private Map map;
         private WyrmsunMapExporter wme;
         private DijkstraPathfinder dp;
+        public List<WyrmsunRace> Factions;
+
 
         public MapGenerator()
         {
@@ -31,6 +35,8 @@ namespace MapGeneration
         // Start is called before the first frame update
         void Start()
         {
+            Factions = CreateFactionList();
+            OptionsScreen.LoadRacesToDropdowns(Factions);
         }
 
         // Update is called once per frame
@@ -38,17 +44,32 @@ namespace MapGeneration
         {
         }
 
-        public void GenerateMap(int seed)
+        public void GenerateMap(int seed, bool isSymmetric, bool isTestMode)
         {
-            map = new Map(128, 128, seed, 2);
-            GenerateSymmetricMap(MapConstants.MAP_SMALL_SIZE, MapConstants.MAP_SMALL_SIZE, seed, WATER_PARAM,
-                MOUNTAIN_PARAM, TREE_PARAM);
+            int numberOfPlayers = 2;
+            if (isTestMode)
+            {
+                numberOfPlayers++;
+            }
+
+            map = new Map(OptionsScreen.GetMapSize(), OptionsScreen.GetMapSize(), seed, numberOfPlayers);
+            if (isSymmetric)
+            {
+                GenerateSymmetricMap(map.Width, map.Height, seed, WATER_PARAM,
+                    MOUNTAIN_PARAM, TREE_PARAM);
+            }
+            else
+            {
+                GenerateAssymetricMap(map.Width, map.Height, seed, WATER_PARAM,
+                    MOUNTAIN_PARAM, TREE_PARAM);
+            }
+
             mapVisualizer.DrawMap(map);
-            List<string> p2 = new List<string> {"person", "computer"};
-            List<string> p3 = new List<string> {"person", "computer", "computer"};
-            dijkstraTest(map);
-            calculateAvgDistanceFromRes(map, map.Players);
-            wme.ExportMapToFile(map, p2, "mapaTestowaZapis");
+            // List<string> p2 = new List<string> {"person", "computer"};
+            // List<string> p3 = new List<string> {"person", "computer", "computer"};
+            DijkstraTest(map);
+            CalculateAvgDistanceFromRes(map, map.Players);
+            wme.ExportMapToFile(map, "mapaTestowaZapis");
         }
 
         private void GenerateAssymetricMap(int width, int height, int seed, float waterParameter,
@@ -56,13 +77,18 @@ namespace MapGeneration
             float treeParameter)
         {
             float[,] elevationNoise =
-                noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, 7, 0.5f, 2, new Vector2(0, 0));
+                noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, calculateOctaves(width), 0.5f, 2,
+                    new Vector2(0, 0));
             float[,] moistureNoise =
-                noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, 7, 0.5f, 10, new Vector2(0, 0));
+                noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, calculateOctaves(width), 0.5f, 10,
+                    new Vector2(0, 0));
             AssignMapTileToNoise(elevationNoise, moistureNoise, waterParameter, mountainParameter, treeParameter);
             PlacePlayers();
             CreateSpawnPoints();
-            PlaceResources(map, 30);
+            int baseRadius = 30;
+            float radiusFull = baseRadius * (width / 128);
+            int resourcesRadius = Mathf.CeilToInt(radiusFull);
+            PlaceResources(map, resourcesRadius);
         }
 
         private void GenerateSymmetricMap(int width, int height, int seed, float waterParameter,
@@ -70,13 +96,18 @@ namespace MapGeneration
             float treeParameter)
         {
             float[,] elevationNoise =
-                noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, 7, 0.5f, 2, new Vector2(0, 0));
+                noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, calculateOctaves(width), 0.5f, 2,
+                    new Vector2(0, 0));
             float[,] moistureNoise =
-                noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, 7, 0.5f, 10, new Vector2(0, 0));
+                noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, calculateOctaves(width), 0.5f, 10,
+                    new Vector2(0, 0));
 
             AssignMapTileToNoise(elevationNoise, moistureNoise, waterParameter, mountainParameter, treeParameter);
+            int baseRadius = 30;
+            float radiusFull = baseRadius * (width / 128f);
+            int resourcesRadius = Mathf.CeilToInt(radiusFull);
 
-            PlaceResources(map, 30);
+            PlaceResources(map, resourcesRadius);
             MapElement newElement;
             for (int y = 0; y < height; y++)
             {
@@ -135,11 +166,17 @@ namespace MapGeneration
                     dp.shortesPath(graph, start, end);
                     if (dp.pathDistance != int.MaxValue)
                     {
+                        WyrmsunRace p1Race = OptionsScreen.GetPlayerRaceById(0);
+                        WyrmsunRace p2Race = OptionsScreen.GetPlayerRaceById(1);
                         List<Player> players = new List<Player>()
                         {
-                            new Player(0, new Vector2Int(x, y), "dwarf", "goldhoof-clan"),
-                            new Player(1, new Vector2Int(map.Height - 1 - x, map.Width - 1 - y), "goblin",
-                                "dreadskull-tribe")
+                            new Player(0, new Vector2Int(x, y), p1Race.raceParam,
+                                p1Race.GetDefaultFaction(), PlayerTypeEnum.Person, OptionsScreen.GetStartWoodAmount(),
+                                OptionsScreen.GetStartCopperAmount(), OptionsScreen.GetStartStoneAmount()),
+                            new Player(1, new Vector2Int(map.Height - 1 - x, map.Width - 1 - y),
+                                p2Race.raceParam,
+                                p2Race.GetDefaultFaction(), PlayerTypeEnum.Computer, OptionsScreen.GetStartWoodAmount(),
+                                OptionsScreen.GetStartCopperAmount(), OptionsScreen.GetStartStoneAmount())
                         };
                         map.Players = players;
                         foreach (var p in map.Players)
@@ -165,8 +202,8 @@ namespace MapGeneration
         {
             List<Player> players = new List<Player>()
             {
-                new Player(0, new Vector2Int(20, 20), "dwarf", "goldhoof-clan"),
-                new Player(1, new Vector2Int(100, 100), "goblin", "dreadskull-tribe")
+                new Player(0, new Vector2Int(20, 20), "dwarf", "goldhoof-clan", PlayerTypeEnum.Person),
+                new Player(1, new Vector2Int(100, 100), "goblin", "dreadskull-tribe", PlayerTypeEnum.Computer)
             };
             map.Players = players;
             foreach (var p in map.Players)
@@ -208,9 +245,9 @@ namespace MapGeneration
 
         private void CreatePlayerSpawn(Vector2Int spawnPosition, Map map)
         {
-            for (int i = -5; i <= 5; i++)
+            for (int i = -6; i <= 6; i++)
             {
-                for (int j = -5; j <= 5; j++)
+                for (int j = -6; j <= 6; j++)
                 {
                     if (!(i == 0 && j == 0))
                     {
@@ -219,6 +256,18 @@ namespace MapGeneration
                         if (i == 4 && j == 4)
                         {
                             map.Map1.Add(v, new MapElement(TileType.Copper, v));
+                        }
+                        else if (i > -5 && i<-2 && j >-4 && j<-1 )
+                        {
+                            map.Map1.Add(v, new MapElement(TileType.SmallCopper, v));
+                        }
+                        else if (i > 1 && i < 4 && j<-2 && j > -6)
+                        {
+                            map.Map1.Add(v, new MapElement(TileType.StonePile, v));
+                        }
+                        else if (i > -3 && i<1 && j > 2 && j < 5)
+                        {
+                            map.Map1.Add(v, new MapElement(TileType.WoodPile, v));
                         }
                         else
                         {
@@ -260,7 +309,7 @@ namespace MapGeneration
             }
         }
 
-        private void dijkstraTest(Map map)
+        private void DijkstraTest(Map map)
         {
             MapGraph graph = map.ToMapGraph();
             Vector2Int p1 = map.Players[0].StartingPosition;
@@ -273,7 +322,7 @@ namespace MapGeneration
             Debug.Log(dp.pathDistance);
         }
 
-        private void calculateAvgDistanceFromRes(Map map, List<Player> players)
+        private void CalculateAvgDistanceFromRes(Map map, List<Player> players)
         {
             MapGraph tmpGraph = map.ToMapGraph();
             foreach (var player in players)
@@ -347,6 +396,28 @@ namespace MapGeneration
                     }
                 }
             }
+        }
+
+        private int calculateOctaves(int mapSize)
+        {
+            if (mapSize == 128)
+            {
+                return 7;
+            }
+            else
+            {
+                return 6;
+            }
+        }
+
+        private List<WyrmsunRace> CreateFactionList()
+        {
+            return new List<WyrmsunRace>
+            {
+                new WyrmsunRace(1, "Dwarves", "dwarf"),
+                new WyrmsunRace(2, "Goblins", "goblin"),
+                new WyrmsunRace(3, "Germans", "germanic")
+            };
         }
     }
 }

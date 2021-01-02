@@ -28,7 +28,7 @@ namespace Controllers
                 Debug.Log(e);
                 return;
             }
-            MapGenerator.GenerateMap(seed);
+            MapGenerator.GenerateMap(seed, true, false);
         }
     }
 }

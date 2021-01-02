@@ -9,6 +9,10 @@
         Iron = 5,
         Water = 6,
         Spawn = 7,
-        Copper = 8
+        Copper = 8,
+        SmallCopper = 9,
+        StonePile = 10,
+        WoodPile = 11,
+        TestModeUnit = 12
     }
 }

@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 286427447}
   - component: {fileID: 286427448}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: TestModeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,7 +1127,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &328560031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,18 @@ MonoBehaviour:
   m_Value: 96
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 896244457}
+        m_MethodName: UpdateSliderNumber
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &420622906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,6 +1922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapVisualizer: {fileID: 1617397367}
+  MainScreen: {fileID: 1704410635}
+  OptionsScreen: {fileID: 896244457}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,6 +4111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28e96d9f59522f4b9eef7a54237c6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapSizeSlider: {fileID: 394247466}
+  MapSizeNumber: {fileID: 807369110}
+  PlayerOneRaceDropdown: {fileID: 1086026246}
+  PlayerTwoRaceDropdown: {fileID: 890168848}
+  WoodInput: {fileID: 690675021}
+  CopperInput: {fileID: 63985650}
+  StoneInput: {fileID: 147454949}
 --- !u!1 &903407851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6268,9 @@ MonoBehaviour:
   SpawnTile: {fileID: 11400000, guid: c48d44bc813d6d044871013d17cb5395, type: 2}
   BCopperTile: {fileID: 11400000, guid: 96366158d9d65d54d9e03a8312886cc8, type: 2}
   BGoldTile: {fileID: 11400000, guid: 121b9f61f2a772541a6a7e5e6e311350, type: 2}
-  EmptyTile: {fileID: 11400000, guid: 51a258b40aad14849b32c33d797f1efb, type: 2}
+  SmallCopperTile: {fileID: 11400000, guid: 2618be25a36b2a9428c49d069a78bd20, type: 2}
+  WoodPileTile: {fileID: 11400000, guid: 792445cd5885a3f4aac119cad53bae9a, type: 2}
+  StonePileTile: {fileID: 11400000, guid: f9cb6b8d99c4e564ea11e7bd4ebfa747, type: 2}
 --- !u!4 &1617397368
 Transform:
   m_ObjectHideFlags: 0
@@ -6569,8 +6591,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapGenerator: {fileID: 468822611}
-  seedInput: {fileID: 875847273}
   MapVisualizer: {fileID: 1617397367}
+  seedInput: {fileID: 875847273}
+  SymmToggle: {fileID: 1716925860}
+  TestMode: {fileID: 286427448}
 --- !u!1 &1716925858
 GameObject:
   m_ObjectHideFlags: 0

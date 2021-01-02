@@ -16,7 +16,10 @@ namespace MapGeneration
         public Tile SpawnTile;
         public Tile BCopperTile;
         public Tile BGoldTile;
-        public Tile EmptyTile;
+
+        public Tile SmallCopperTile;
+        public Tile WoodPileTile;
+        public Tile StonePileTile;
 
         void Start()
         {
@@ -61,6 +64,21 @@ namespace MapGeneration
                     ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
                         BCopperTile);
                 }
+                else if (mapTile.Type == TileType.SmallCopper)
+                {
+                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
+                        SmallCopperTile);
+                }
+                else if (mapTile.Type == TileType.WoodPile)
+                {
+                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
+                        WoodPileTile);
+                }
+                else if (mapTile.Type == TileType.StonePile)
+                {
+                    ResourcesMap.SetTile(new Vector3Int(mapTile.Position.x, map.Height - mapTile.Position.y, 0),
+                        StonePileTile);
+                }
             }
 
             foreach (Player p in map.Players)
@@ -71,7 +89,6 @@ namespace MapGeneration
 
         public void ClearGridMap()
         {
-            
             BaseMap.ClearAllTiles();
             TreeMap.ClearAllTiles();
             ResourcesMap.ClearAllTiles();

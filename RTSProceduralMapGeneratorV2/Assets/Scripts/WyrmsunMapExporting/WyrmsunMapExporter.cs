@@ -8,20 +8,36 @@ namespace WyrmsunMapExporting
 {
     public class WyrmsunMapExporter
     {
-        public void ExportMapToFile(Map map, List<string> playerTypes, string mapName)
+        public void ExportMapToFile(Map map, string mapName)
         {
             var dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            CreateSmpFile(1, playerTypes, dir, mapName, map);
-            CreateSmsFile(map, 1000, 1000, 1000, dir, mapName);
+            int startLumber = map.Players[0].StartWood;
+            int startCopper = map.Players[0].StartCopper;
+            int startStone = map.Players[0].StartStone;
+            CreateSmpFile(1, dir, mapName, map);
+            CreateSmsFile(map, startLumber, startCopper, startStone, dir, mapName);
         }
 
-        private void CreateSmpFile(int pNum, List<string> pTypes, string dir, string mapName, Map map)
+        private void CreateSmpFile(int pNum, string dir, string mapName, Map map)
         {
+            List<string> playerTypes = new List<string>();
+            foreach (var player in map.Players)
+            {
+                if (player.PlayerType == PlayerTypeEnum.Person)
+                {
+                    playerTypes.Add(WyrmsunMapTemplates.PLAYER_PERSON);
+                }
+                else
+                {
+                    playerTypes.Add(WyrmsunMapTemplates.PLAYER_COMPUTER);
+                }
+            }
+
             var fileName = mapName + ".smp";
             using (StreamWriter file = new StreamWriter(Path.Combine(dir, fileName)))
             {
                 file.Write(WyrmsunMapTemplates.HEADER);
-                file.Write(WyrmsunMapTemplates.PlayerTypes2P(pTypes.ToArray()));
+                file.Write(WyrmsunMapTemplates.PlayerTypes2P(playerTypes.ToArray()));
                 file.Write(WyrmsunMapTemplates.PresentMap(mapName, pNum, map.Width, map.Height, 1));
             }
         }
