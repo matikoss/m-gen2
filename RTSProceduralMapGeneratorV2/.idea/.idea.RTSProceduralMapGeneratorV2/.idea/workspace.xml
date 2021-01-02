@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="Added new resources, more complex spawn points, UI works etc ...">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
-    </list>
+    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="New unit types" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +143,7 @@
       <workItem from="1609411625103" duration="10863000" />
       <workItem from="1609502848444" duration="13129000" />
       <workItem from="1609524230815" duration="3948000" />
-      <workItem from="1609586326017" duration="1869000" />
+      <workItem from="1609586326017" duration="1892000" />
     </task>
     <task id="LOCAL-00001" summary="Basic generation of symmetrical maps. Code improvement.">
       <created>1609067566213</created>
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609587093472</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="New unit types">
+      <created>1609589425182</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609589425182</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +198,8 @@
     <MESSAGE value="Basic generation of symmetrical maps. Code improvement." />
     <MESSAGE value="UI upgrade, code improvement." />
     <MESSAGE value="Added new resources, more complex spawn points, UI works etc ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new resources, more complex spawn points, UI works etc ..." />
+    <MESSAGE value="New unit types" />
+    <option name="LAST_COMMIT_MESSAGE" value="New unit types" />
   </component>
   <component name="WindowStateProjectService">
     <state x="715" y="224" width="999" height="627" key="#xdebugger.evaluate" timestamp="1609525443117">
@@ -274,10 +278,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608479944036" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609587099770">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609589427177">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609587099770" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609589427177" />
     <state x="-113" y="166" width="1641" height="1027" maximized="true" key="dock-window-1" timestamp="1609503157560">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
