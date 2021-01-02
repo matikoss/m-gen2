@@ -19,42 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="UI upgrade, code improvement.">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEntities/PlayerTypeEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEntities/PlayerTypeEnum.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmRaceTypes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmRaceTypes.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunRace.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunRace.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/smallCopper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/stonePileTile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/woodPileTile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="Added new resources, more complex spawn points, UI works etc ...">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Palettes/GroundTiles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Palettes/GroundTiles.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MapScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MainScreenController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/MainScreenController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OptionsScreenController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/OptionsScreenController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIFrameHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIFrameHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEntities/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEntities/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEntities/TileTypeEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEntities/TileTypeEnum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapVisualizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapTemplates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapTemplates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0f/0f88593df69492b8169c83807f4892a1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/10/101ded11b7b705dbce7d369fef98a5a6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/63/63b25ad05afa4bbd5628b523c77d3bc3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/93/9363bfff9cecea828dd28ccbc9d8eeb7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/46b7a0-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/46b7a0-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/d69a67-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/d69a67-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +43,6 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/NoiseArrayGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunTileTypes.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/MapElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonDiskSampler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonSampler.cs" />
@@ -101,6 +68,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapTemplates.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmUnitsTypes.cs" />
       </list>
     </option>
   </component>
@@ -179,7 +147,7 @@
       <workItem from="1609411625103" duration="10863000" />
       <workItem from="1609502848444" duration="13129000" />
       <workItem from="1609524230815" duration="3948000" />
-      <workItem from="1609586326017" duration="600000" />
+      <workItem from="1609586326017" duration="1869000" />
     </task>
     <task id="LOCAL-00001" summary="Basic generation of symmetrical maps. Code improvement.">
       <created>1609067566213</created>
@@ -195,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609347071854</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added new resources, more complex spawn points, UI works etc ...">
+      <created>1609587093472</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609587093472</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +194,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Basic generation of symmetrical maps. Code improvement." />
     <MESSAGE value="UI upgrade, code improvement." />
-    <option name="LAST_COMMIT_MESSAGE" value="UI upgrade, code improvement." />
+    <MESSAGE value="Added new resources, more complex spawn points, UI works etc ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new resources, more complex spawn points, UI works etc ..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="715" y="224" width="999" height="627" key="#xdebugger.evaluate" timestamp="1609525443117">
@@ -298,10 +274,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608479944036" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609347075123">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609587099770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609347075123" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609587099770" />
     <state x="-113" y="166" width="1641" height="1027" maximized="true" key="dock-window-1" timestamp="1609503157560">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
