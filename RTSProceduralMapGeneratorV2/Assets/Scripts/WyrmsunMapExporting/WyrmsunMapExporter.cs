@@ -8,12 +8,20 @@ namespace WyrmsunMapExporting
 {
     public class WyrmsunMapExporter
     {
-        public void ExportMapToFile(Map map, string mapName)
+        private bool IsTestMode;
+
+        public WyrmsunMapExporter()
         {
+            IsTestMode = false;
+        }
+
+        public void ExportMapToFile(Map map, string mapName, bool isTestMode)
+        {
+            this.IsTestMode = isTestMode;
             var dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            int startLumber = map.Players[0].StartWood;
-            int startCopper = map.Players[0].StartCopper;
-            int startStone = map.Players[0].StartStone;
+            int startLumber = map.Players[1].StartWood;
+            int startCopper = map.Players[1].StartCopper;
+            int startStone = map.Players[1].StartStone;
             CreateSmpFile(1, dir, mapName, map);
             CreateSmsFile(map, startLumber, startCopper, startStone, dir, mapName);
         }
@@ -37,7 +45,15 @@ namespace WyrmsunMapExporting
             using (StreamWriter file = new StreamWriter(Path.Combine(dir, fileName)))
             {
                 file.Write(WyrmsunMapTemplates.HEADER);
-                file.Write(WyrmsunMapTemplates.PlayerTypes2P(playerTypes.ToArray()));
+                if (IsTestMode)
+                {
+                    file.Write(WyrmsunMapTemplates.PlayerTypes3P(playerTypes.ToArray()));
+                }
+                else
+                {
+                    file.Write(WyrmsunMapTemplates.PlayerTypes2P(playerTypes.ToArray()));
+                }
+
                 file.Write(WyrmsunMapTemplates.PresentMap(mapName, pNum, map.Width, map.Height, 1));
             }
         }
@@ -53,11 +69,11 @@ namespace WyrmsunMapExporting
                 foreach (var player in map.Players)
                 {
                     file.Write(WyrmsunMapTemplates.PlayerData(player.ID, player.StartingPosition, startLumber,
-                        startCopper, startStone, player.Race, player.Faction, "passive"));
+                        startCopper, startStone, player.Race, player.Faction, WyrmAITypes.LAND_ATTACK));
                 }
 
                 file.Write(WyrmsunMapTemplates.PlayerData(63, new Vector2Int(0, 0), 0,
-                    0, 0, "neutral", "ai-passive"));
+                    0, 0, "neutral", WyrmAITypes.PASSIVE));
                 file.Write("\n");
                 file.Write(WyrmsunMapTemplates.LoadTileset("scripts/tilesets/conifer_forest_summer.lua"));
                 file.Write(WyrmsunMapTemplates.TILES_MAP);
@@ -105,10 +121,32 @@ namespace WyrmsunMapExporting
                         file.Write(WyrmsunMapTemplates.CreateResource(WyrmUnitsTypes.BIG_COPPER, 63, t.Position,
                             5000));
                     }
+                    else if (t.Type == TileType.SmallCopper)
+                    {
+                        file.Write(WyrmsunMapTemplates.CreateResource(WyrmUnitsTypes.SMALL_COPPER, 63, t.Position,
+                            400));
+                    }
+                    else if (t.Type == TileType.StonePile)
+                    {
+                        file.Write(WyrmsunMapTemplates.CreateResource(WyrmUnitsTypes.SMALL_STONE, 63, t.Position,
+                            400));
+                    }
+                    else if (t.Type == TileType.WoodPile)
+                    {
+                        file.Write(WyrmsunMapTemplates.CreateResource(WyrmUnitsTypes.SMALL_WOOD, 63, t.Position,
+                            400));
+                    }
                 }
 
                 foreach (var p in map.Players)
                 {
+                    if (IsTestMode && p.PlayerType == PlayerTypeEnum.Person)
+                    {
+                        file.Write(WyrmsunMapTemplates.CreateUnit(WyrmUnitsTypes.DWARF_WORKER, p.ID,
+                            new Vector2Int(p.StartingPosition.x - 5, p.StartingPosition.y - 5)));
+                        continue;
+                    }
+
                     if (p.Race == "dwarf")
                     {
                         file.Write(WyrmsunMapTemplates.CreateUnit(WyrmUnitsTypes.DWARF_HALL, p.ID,
@@ -117,6 +155,11 @@ namespace WyrmsunMapExporting
                     else if (p.Race == "goblin")
                     {
                         file.Write(WyrmsunMapTemplates.CreateUnit(WyrmUnitsTypes.GOBLIN_HALL, p.ID,
+                            p.StartingPosition));
+                    }
+                    else if (p.Race == "germanic")
+                    {
+                        file.Write(WyrmsunMapTemplates.CreateUnit(WyrmUnitsTypes.GERMAN_HALL, p.ID,
                             p.StartingPosition));
                     }
                 }

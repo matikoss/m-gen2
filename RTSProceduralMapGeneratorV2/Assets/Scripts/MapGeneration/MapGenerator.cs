@@ -69,7 +69,8 @@ namespace MapGeneration
             // List<string> p3 = new List<string> {"person", "computer", "computer"};
             DijkstraTest(map);
             CalculateAvgDistanceFromRes(map, map.Players);
-            wme.ExportMapToFile(map, "mapaTestowaZapis");
+            CreateMapInTestMode(map);
+            wme.ExportMapToFile(map, "mapaTestowaZapis", isTestMode);
         }
 
         private void GenerateAssymetricMap(int width, int height, int seed, float waterParameter,
@@ -187,7 +188,15 @@ namespace MapGeneration
                             }
 
                             map.Map1.Add(p.StartingPosition, new MapElement(TileType.Spawn, p.StartingPosition));
-                            CreatePlayerSpawn(p.StartingPosition, map);
+                            if (p.ID == 1)
+                            {
+                                CreatePlayerSpawnSymm(p.StartingPosition, map, true);
+                            }
+                            else
+                            {
+                                CreatePlayerSpawnSymm(p.StartingPosition, map, false);
+                            }
+                            
                         }
 
                         return true;
@@ -243,7 +252,7 @@ namespace MapGeneration
             }
         }
 
-        private void CreatePlayerSpawn(Vector2Int spawnPosition, Map map)
+        private void CreatePlayerSpawnSymm(Vector2Int spawnPosition, Map map, bool IsP2)
         {
             for (int i = -6; i <= 6; i++)
             {
@@ -251,27 +260,56 @@ namespace MapGeneration
                 {
                     if (!(i == 0 && j == 0))
                     {
-                        var v = new Vector2Int(spawnPosition.x + i, spawnPosition.y + j);
-                        map.Map1.Remove(v);
-                        if (i == 4 && j == 4)
+                        if (!IsP2)
                         {
-                            map.Map1.Add(v, new MapElement(TileType.Copper, v));
+                            var v = new Vector2Int(spawnPosition.x + i, spawnPosition.y + j);
+                            map.Map1.Remove(v);
+                            if (i == 4 && j == 4)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.Copper, v));
+                            }
+                            else if (i > -5 && i < -2 && j > -4 && j < -1)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.SmallCopper, v));
+                            }
+                            else if (i > 1 && i < 4 && j < -2 && j > -6)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.StonePile, v));
+                            }
+                            else if (i > -3 && i < 1 && j > 2 && j < 5)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.WoodPile, v));
+                            }
+                            else
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.Empty, v));
+                            }
                         }
-                        else if (i > -5 && i<-2 && j >-4 && j<-1 )
+
+                        if (IsP2)
                         {
-                            map.Map1.Add(v, new MapElement(TileType.SmallCopper, v));
-                        }
-                        else if (i > 1 && i < 4 && j<-2 && j > -6)
-                        {
-                            map.Map1.Add(v, new MapElement(TileType.StonePile, v));
-                        }
-                        else if (i > -3 && i<1 && j > 2 && j < 5)
-                        {
-                            map.Map1.Add(v, new MapElement(TileType.WoodPile, v));
-                        }
-                        else
-                        {
-                            map.Map1.Add(v, new MapElement(TileType.Empty, v));
+                            var v = new Vector2Int(spawnPosition.x + i, spawnPosition.y + j);
+                            map.Map1.Remove(v);
+                            if (i == -4 && j == - 4)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.Copper, v));
+                            }
+                            else if (i < 5 && i > 2 && j < 4 && j > 1)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.SmallCopper, v));
+                            }
+                            else if (i < -1 && i > -4 && j > 2 && j < 6)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.StonePile, v));
+                            }
+                            else if (i < 3 && i > -1 && j < -2 && j > -5)
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.WoodPile, v));
+                            }
+                            else
+                            {
+                                map.Map1.Add(v, new MapElement(TileType.Empty, v));
+                            }
                         }
                     }
                 }
@@ -418,6 +456,16 @@ namespace MapGeneration
                 new WyrmsunRace(2, "Goblins", "goblin"),
                 new WyrmsunRace(3, "Germans", "germanic")
             };
+        }
+
+        private void CreateMapInTestMode(Map map)
+        {
+            Player referenceHumanPlayer = map.Players[0];
+            Player testComputerPlayer = new Player(2, referenceHumanPlayer.StartingPosition, referenceHumanPlayer.Race,
+                referenceHumanPlayer.Faction, PlayerTypeEnum.Computer,
+                referenceHumanPlayer.StartWood, referenceHumanPlayer.StartCopper, referenceHumanPlayer.StartStone);
+            map.Players.Add(testComputerPlayer);
+            map.Players[0].SetResources(0, 0, 0);
         }
     }
 }

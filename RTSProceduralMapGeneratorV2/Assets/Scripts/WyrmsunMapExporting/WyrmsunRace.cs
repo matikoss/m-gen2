@@ -10,7 +10,7 @@ namespace WyrmsunMapExporting
 
         public WyrmsunRace(int id, string raceName, string raceParam)
         {
-            this.raceId = id;
+            raceId = id;
             this.raceName = raceName;
             this.raceParam = raceParam;
         }

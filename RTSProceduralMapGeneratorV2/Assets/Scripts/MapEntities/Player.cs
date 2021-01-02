@@ -21,6 +21,7 @@ namespace MapEntities
             this.startingPosition = startingPosition;
             this.race = race;
             this.faction = faction;
+            this.playerType = playerType;
             avgDistanceFromResources = 0;
             startWood = 2000;
             startCopper = 2000;
@@ -35,6 +36,7 @@ namespace MapEntities
             this.startingPosition = startingPosition;
             this.race = race;
             this.faction = faction;
+            this.playerType = playerType;
             avgDistanceFromResources = 0;
 
             this.startWood = startWood;
@@ -91,5 +93,12 @@ namespace MapEntities
         }
 
         public PlayerTypeEnum PlayerType => playerType;
+
+        public void SetResources(int wood, int copper, int stone)
+        {
+            startWood = wood;
+            startCopper = copper;
+            startStone = stone;
+        }
     }
 }

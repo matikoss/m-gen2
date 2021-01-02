@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Constants;
 using UnityEngine;
 using UnityEngine.UI;
 using WyrmsunMapExporting;
@@ -31,7 +32,6 @@ public class OptionsScreenController : MonoBehaviour
     {
         PlayerOneRaceDropdown.options = new List<OptionData>();
         PlayerTwoRaceDropdown.options = new List<OptionData>();
-
         foreach (var faction in factions)
         {
             var option = new OptionData();
@@ -43,27 +43,27 @@ public class OptionsScreenController : MonoBehaviour
 
     public WyrmsunRace GetPlayerRaceById(int id)
     {
-        string playerRace;
+        int playerRace;
         if (id == 0)
         {
-            playerRace = PlayerOneRaceDropdown.itemText.text;
+            playerRace = PlayerOneRaceDropdown.value;
         }
         else
         {
-            playerRace = PlayerTwoRaceDropdown.itemText.text;
+            playerRace = PlayerTwoRaceDropdown.value;
         }
 
-        if (playerRace == "Dwarves")
+        if (playerRace == (int) RaceDropDownEnum.Dwarves)
         {
-            return new WyrmsunRace(0, playerRace, WyrmRaceTypes.DWARVES);
+            return new WyrmsunRace(0, RaceDropDownEnum.Dwarves.ToString(), WyrmRaceTypes.DWARVES);
         }
 
-        if (playerRace == "Goblins")
+        if (playerRace == (int) RaceDropDownEnum.Goblins)
         {
-            return new WyrmsunRace(0, playerRace, WyrmRaceTypes.GOBLINS);
+            return new WyrmsunRace(1, RaceDropDownEnum.Goblins.ToString(), WyrmRaceTypes.GOBLINS);
         }
 
-        return new WyrmsunRace(0, playerRace, WyrmRaceTypes.GERMANS);
+        return new WyrmsunRace(2, RaceDropDownEnum.Germans.ToString(), WyrmRaceTypes.GERMANS);
     }
 
     public int GetStartWoodAmount()
