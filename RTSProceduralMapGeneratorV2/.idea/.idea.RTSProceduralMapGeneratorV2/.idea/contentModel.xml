@@ -17,6 +17,10 @@
             <e p="OptionsScreenController.cs" t="Include" />
             <e p="UIFrameHandler.cs" t="Include" />
           </e>
+          <e p="helpers" t="Include">
+            <e p="PlayerRacesData.cs" t="Include" />
+            <e p="ResourcesData.cs" t="Include" />
+          </e>
           <e p="MapEntities" t="Include">
             <e p="Map.cs" t="Include" />
             <e p="MapElement.cs" t="Include" />
@@ -25,7 +29,11 @@
             <e p="TileTypeEnum.cs" t="Include" />
           </e>
           <e p="MapGeneration" t="Include">
+            <e p="EvoMapGenerator.cs" t="Include" />
+            <e p="EvoMapWrapper.cs" t="Include" />
+            <e p="MapEvaluator.cs" t="Include" />
             <e p="MapGenerator.cs" t="Include" />
+            <e p="MapParameters.cs" t="Include" />
             <e p="MapVisualizer.cs" t="Include" />
             <e p="NoiseArrayGenerator.cs" t="Include" />
           </e>

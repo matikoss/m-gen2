@@ -22,6 +22,18 @@ namespace tools
                 Mathf.CeilToInt(height / cellSize)];
         }
 
+        public List<Vector2Int> GetSamples(Vector2 start)
+        {
+            var samples = GenerateSamples(start);
+            List<Vector2Int> samplesInt = new List<Vector2Int>();
+            foreach (var s in samples)
+            {
+                samplesInt.Add(new Vector2Int((int) s.x, (int) s.y));
+            }
+
+            return samplesInt;
+        }
+
         public List<Vector2Int> GetSamples()
         {
             var samples = GenerateSamples();
@@ -37,6 +49,40 @@ namespace tools
         private IEnumerable<Vector2> GenerateSamples()
         {
             yield return AddSample(new Vector2(Random.value * rect.width, Random.value * rect.height));
+
+            while (activeSamples.Count > 0)
+            {
+                int i = (int) Random.value * activeSamples.Count;
+                Vector2 sample = activeSamples[i];
+
+                bool found = false;
+                for (int j = 0; j < maxAttemps; ++j)
+                {
+                    float angle = 2 * Mathf.PI * Random.value;
+                    float
+                        r = Mathf.Sqrt(Random.value * 3 * squaredR +
+                                       squaredR);
+                    Vector2 candidate = sample + r * new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                    if (rect.Contains(candidate) && IsFarEnough(candidate))
+                    {
+                        found = true;
+                        yield return AddSample(candidate);
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    activeSamples[i] = activeSamples[activeSamples.Count - 1];
+                    activeSamples.RemoveAt(activeSamples.Count - 1);
+                }
+            }
+        }
+
+        private IEnumerable<Vector2> GenerateSamples(Vector2 start)
+        {
+            yield return AddSample(new Vector2(start.x, start.y));
 
             while (activeSamples.Count > 0)
             {

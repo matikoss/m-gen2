@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using helpers;
 using MapEntities;
 using tools;
 using UnityEngine;
@@ -60,8 +61,7 @@ namespace MapGeneration
             }
             else
             {
-                GenerateAssymetricMap(map.Width, map.Height, seed, WATER_PARAM,
-                    MOUNTAIN_PARAM, TREE_PARAM);
+                GenerateAssymetricMap(seed);
             }
 
             mapVisualizer.DrawMap(map);
@@ -73,24 +73,35 @@ namespace MapGeneration
             wme.ExportMapToFile(map, "mapaTestowaZapis", isTestMode);
         }
 
-        private void GenerateAssymetricMap(int width, int height, int seed, float waterParameter,
-            float mountainParameter,
-            float treeParameter)
+        private void GenerateAssymetricMap(int seed)
         {
-            float[,] elevationNoise =
-                noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, calculateOctaves(width), 0.5f, 2,
-                    new Vector2(0, 0));
-            float[,] moistureNoise =
-                noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, calculateOctaves(width), 0.5f, 10,
-                    new Vector2(0, 0));
-            AssignMapTileToNoise(elevationNoise, moistureNoise, waterParameter, mountainParameter, treeParameter);
-            PlacePlayers();
-            CreateSpawnPoints();
-            int baseRadius = 30;
-            float radiusFull = baseRadius * (width / 128);
-            int resourcesRadius = Mathf.CeilToInt(radiusFull);
-            PlaceResources(map, resourcesRadius);
+            PlayerRacesData racesData =
+                new PlayerRacesData(OptionsScreen.GetPlayerRaceById(0), OptionsScreen.GetPlayerRaceById(1));
+            ResourcesData startResources = new ResourcesData(OptionsScreen.GetStartWoodAmount(),
+                OptionsScreen.GetStartCopperAmount(), OptionsScreen.GetStartStoneAmount());
+            EvoMapGenerator emg = new EvoMapGenerator(seed, map.Width, map.Height, 100, map.NumberOfPlayers, racesData,
+                startResources);
+            this.map = emg.FindBest();
         }
+
+        // private void GenerateAssymetricMap(int width, int height, int seed, float waterParameter,
+        //     float mountainParameter,
+        //     float treeParameter)
+        // {
+        //     float[,] elevationNoise =
+        //         noiseGenerator.GenerateNoiseArray(width, height, seed, 70.0f, calculateOctaves(width), 0.5f, 2,
+        //             new Vector2(0, 0));
+        //     float[,] moistureNoise =
+        //         noiseGenerator.GenerateNoiseArray(width, height, seed, 25.0f, calculateOctaves(width), 0.5f, 10,
+        //             new Vector2(0, 0));
+        //     AssignMapTileToNoise(elevationNoise, moistureNoise, waterParameter, mountainParameter, treeParameter);
+        //     PlacePlayers();
+        //     CreateSpawnPoints();
+        //     int baseRadius = 30;
+        //     float radiusFull = baseRadius * (width / 128);
+        //     int resourcesRadius = Mathf.CeilToInt(radiusFull);
+        //     PlaceResources(map, resourcesRadius);
+        // }
 
         private void GenerateSymmetricMap(int width, int height, int seed, float waterParameter,
             float mountainParameter,
@@ -196,7 +207,6 @@ namespace MapGeneration
                             {
                                 CreatePlayerSpawnSymm(p.StartingPosition, map, false);
                             }
-                            
                         }
 
                         return true;
@@ -290,7 +300,7 @@ namespace MapGeneration
                         {
                             var v = new Vector2Int(spawnPosition.x + i, spawnPosition.y + j);
                             map.Map1.Remove(v);
-                            if (i == -4 && j == - 4)
+                            if (i == -4 && j == -4)
                             {
                                 map.Map1.Add(v, new MapElement(TileType.Copper, v));
                             }
@@ -358,6 +368,20 @@ namespace MapGeneration
             MapNode end = graph.MapNodes[endIndex];
             dp.shortesPath(graph, start, end);
             Debug.Log(dp.pathDistance);
+        }
+
+        private int CalculateDistanceBetweenPlayers(Map map)
+        {
+            MapGraph graph = map.ToMapGraph();
+            Vector2Int p1 = map.Players[0].StartingPosition;
+            Vector2Int p2 = map.Players[1].StartingPosition;
+            var startIndex = graph.MapNodes.IndexOf(new MapNode(map.Map1[p1]));
+            var endIndex = graph.MapNodes.IndexOf(new MapNode(map.Map1[p2]));
+            MapNode start = graph.MapNodes[startIndex];
+            MapNode end = graph.MapNodes[endIndex];
+            dp.shortesPath(graph, start, end);
+            Debug.Log(dp.pathDistance);
+            return dp.pathDistance;
         }
 
         private void CalculateAvgDistanceFromRes(Map map, List<Player> players)

@@ -19,26 +19,38 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="New unit types">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Constants/RaceDropDownEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Constants/RaceDropDownEnum.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmAITypes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmAITypes.cs.meta" afterDir="false" />
+    <list default="true" id="519f23c7-87d3-4fa2-b4fa-292041e4eddc" name="Default Changelist" comment="Finished symmetric map generation and test mode">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/EvoMapGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/EvoMapGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/EvoMapWrapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapEvaluator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapEvaluator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapParameters.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapParameters.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/helpers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/helpers/PlayerRacesData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/helpers/PlayerRacesData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/helpers/ResourcesData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/helpers/ResourcesData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RTSProceduralMapGeneratorV2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OptionsScreenController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/OptionsScreenController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEntities/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEntities/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunRace.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunRace.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/tools/PoissonSampler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/tools/PoissonSampler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/63/6373e46ad74052677738979c5b936fb1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/31/312d6627afb24acb39a50710c3b6027c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/32/32e8b5218625c998d26a7ccb88d70632" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/33/33522aafe930034e6428d97a33740471" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/bb/bba8bd0987455b2b8428000c7c3cda27" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/e5/e53862e20b0ed7022a7ec5b4ea81da13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/46b7a0-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/46b7a0-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/d69a67-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/d69a67-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +62,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7A640F6C-B241-40B6-897C-AC910F849430/68/26123b43/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/d4/7fa4cf85/IComparable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8691AD70-05ED-4755-A182-8378FF0B52B1/f6/4109a920/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7A640F6C-B241-40B6-897C-AC910F849430/ee/ff57fc32/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Programy/Unity/2019.4.11f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/4f/053d4227/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -63,7 +75,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunTileTypes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/MapElement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonDiskSampler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonSampler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/tools/MapEdge.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/tools/MapGraph.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/Map.cs" />
@@ -88,7 +99,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmAITypes.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapEntities/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WyrmsunMapExporting/WyrmsunMapExporter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapParameters.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapEvaluator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/tools/PoissonSampler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/helpers/ResourcesData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/helpers/PlayerRacesData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/EvoMapWrapper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MapGeneration/EvoMapGenerator.cs" />
       </list>
     </option>
   </component>
@@ -117,10 +135,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9756">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="9756" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -168,7 +186,10 @@
       <workItem from="1609502848444" duration="13129000" />
       <workItem from="1609524230815" duration="3948000" />
       <workItem from="1609586326017" duration="1892000" />
-      <workItem from="1609592277483" duration="19149000" />
+      <workItem from="1609592277483" duration="23094000" />
+      <workItem from="1609669124120" duration="600000" />
+      <workItem from="1609673175229" duration="75000" />
+      <workItem from="1609678011749" duration="29421000" />
     </task>
     <task id="LOCAL-00001" summary="Basic generation of symmetrical maps. Code improvement.">
       <created>1609067566213</created>
@@ -198,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609589425182</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finished symmetric map generation and test mode">
+      <created>1609622348518</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609622348518</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,93 +252,94 @@
     <MESSAGE value="UI upgrade, code improvement." />
     <MESSAGE value="Added new resources, more complex spawn points, UI works etc ..." />
     <MESSAGE value="New unit types" />
-    <option name="LAST_COMMIT_MESSAGE" value="New unit types" />
+    <MESSAGE value="Finished symmetric map generation and test mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished symmetric map generation and test mode" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2175" y="247" width="999" height="627" key="#xdebugger.evaluate" timestamp="1609600454917">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2175" y="247" width="999" height="627" key="#xdebugger.evaluate/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609600454917" />
-    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.0.center" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1609614180568">
+    <state width="1877" height="234" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.0.left" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180568" />
-    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.0.right" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.1.bottom" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.1.bottom" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.1.center" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.1.center" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.1.left" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.1.left" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.1.right" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.1.right" timestamp="1609627547904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.2.bottom" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547904" />
+    <state width="1877" height="234" key="GridCell.Tab.2.bottom" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.2.center" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.2.center" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.2.left" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.2.left" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.2.right" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.2.right" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.3.bottom" timestamp="1609614180570">
+    <state width="1877" height="234" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.3.bottom" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180570" />
-    <state width="1877" height="234" key="GridCell.Tab.3.center" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.3.center" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.3.left" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.3.left" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state width="1877" height="234" key="GridCell.Tab.3.right" timestamp="1609614180569">
+    <state width="1877" height="234" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state width="1877" height="234" key="GridCell.Tab.3.right" timestamp="1609627547905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="234" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609614180569" />
-    <state x="2590" y="198" key="RiderGenerateDialog" timestamp="1609612285056">
+    <state width="1877" height="234" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609627547905" />
+    <state x="2590" y="198" key="RiderGenerateDialog" timestamp="1609708516132">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2590" y="198" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609612285056" />
+    <state x="2590" y="198" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609708516132" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1608479944036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1608479944036" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609589427177">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609622359666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609589427177" />
-    <state x="1920" y="0" width="1624" height="792" maximized="true" key="dock-window-1" timestamp="1609622093387">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609622359666" />
+    <state x="42" y="130" width="1606" height="1027" maximized="true" key="dock-window-1" timestamp="1609715579222">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1624" height="792" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609622093387" />
+    <state x="42" y="130" width="1606" height="1027" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1609715579222" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609526704507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -319,19 +348,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapGenerator.cs</url>
-          <line>48</line>
-          <properties documentPath="D:\GameDev\m-gen2-github\m-gen2\RTSProceduralMapGeneratorV2\Assets\Scripts\MapGeneration\MapGenerator.cs" initialLine="48">
-            <startOffsets>
-              <option value="1396" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1420" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Controllers/OptionsScreenController.cs</url>
           <line>44</line>
