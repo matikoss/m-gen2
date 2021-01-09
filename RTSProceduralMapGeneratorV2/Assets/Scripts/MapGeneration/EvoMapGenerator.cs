@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using helpers;
 using MapEntities;
 using tools;
@@ -20,6 +21,13 @@ namespace MapGeneration
         public static readonly int RESOURCES_RADIUS = 30;
         public static readonly int SPAWN_BOUND = 6;
 
+        public static readonly float MUTATION_RATE = 0.03f;
+        public static readonly float CROSSOVER_RATE = 0.9f;
+
+        public static readonly int AFTER_SELECTION_SIZE = 25;
+        public static readonly float EVO_END_GRADE = 5.9f;
+        public static readonly int EVO_NUMBER = 20;
+
         public EvoMapGenerator(int seed, int width, int height, int startPopulationSize, int numberOfPlayers,
             PlayerRacesData races, ResourcesData startResources)
         {
@@ -37,7 +45,35 @@ namespace MapGeneration
 
         public Map FindBest()
         {
+            EvoGeneration();
+            Debug.Log(listOfMaps[0].Rating);
             return listOfMaps[0].Map;
+        }
+
+        public void EvoGeneration()
+        {
+            MapEvaluator mapEvaluator = new MapEvaluator(elevationMap, moistureMap);
+            FirstRun(mapEvaluator);
+            Debug.Log(listOfMaps[0].Rating);
+            int evoCount = 0;
+            while (listOfMaps[0].Rating < EVO_END_GRADE && evoCount < EVO_NUMBER)
+            {
+                SelectFirstNBest(AFTER_SELECTION_SIZE);
+                CrossoverPhase();
+                MutationPhase();
+                foreach (var wMap in listOfMaps)
+                {
+                    if (wMap.Rating == 0)
+                    {
+                        mapEvaluator.Evaluate(wMap);
+                    }
+                }
+
+                listOfMaps.Sort();
+                listOfMaps.Reverse();
+                evoCount++;
+                Debug.Log(listOfMaps[0].Rating);
+            }
         }
 
         private void InitNoiseArrays()
@@ -66,6 +102,146 @@ namespace MapGeneration
 
                 EvoMapWrapper eMap = CreateWrappedMap(seed, width, height, mp, resourcesStart, oneStart, twoStart);
                 listOfMaps.Add(eMap);
+            }
+        }
+
+        private void FirstRun(MapEvaluator mapEvaluator)
+        {
+            foreach (var wMap in listOfMaps)
+            {
+                mapEvaluator.Evaluate(wMap);
+            }
+
+            listOfMaps.Sort();
+            listOfMaps.Reverse();
+        }
+
+        private void SelectFirstNBest(int n)
+        {
+            List<EvoMapWrapper> newGeneration = new List<EvoMapWrapper>();
+            for (int i = 0; i < n; i++)
+            {
+                newGeneration.Add(listOfMaps[i]);
+            }
+
+            listOfMaps = newGeneration;
+        }
+
+        private void CrossoverPhase()
+        {
+            List<EvoMapWrapper> children = new List<EvoMapWrapper>();
+            while (children.Count < (startPopulationSize - AFTER_SELECTION_SIZE))
+            {
+                int parent1 = Random.Range(0, listOfMaps.Count - 1);
+                int parent2 = Random.Range(0, listOfMaps.Count - 1);
+                while (parent1 == parent2)
+                {
+                    parent2 = Random.Range(0, listOfMaps.Count - 1);
+                }
+
+                EvoMapWrapper parent1Map = listOfMaps[parent1];
+                EvoMapWrapper parent2Map = listOfMaps[parent2];
+                CrossOver(parent1Map, parent2Map, children);
+            }
+
+            listOfMaps.AddRange(children);
+        }
+
+        private void MutationPhase()
+        {
+            foreach (var map in listOfMaps)
+            {
+                Mutate(map);
+            }
+        }
+
+        private void CrossOver(EvoMapWrapper map1, EvoMapWrapper map2, List<EvoMapWrapper> childrenList)
+        {
+            if (YesNoFromRatio(CROSSOVER_RATE))
+            {
+                int crossOverBound = Random.Range(1, 6);
+                MapParameters mapParameters = map1.Parameters;
+                Vector2 resourcesStart = map1.ResourcesStart;
+                Vector2Int p1Spawn = map1.Map.Players[0].StartingPosition;
+                Vector2Int p2Spawn = map1.Map.Players[1].StartingPosition;
+                if (crossOverBound == 1)
+                {
+                    mapParameters.MountainParam = map2.Parameters.WaterParam;
+                    mapParameters.TreeParam = map2.Parameters.TreeParam;
+                    resourcesStart = map2.ResourcesStart;
+                    p1Spawn = map2.Map.Players[0].StartingPosition;
+                    p2Spawn = map2.Map.Players[1].StartingPosition;
+                }
+                else if (crossOverBound == 2)
+                {
+                    mapParameters.TreeParam = map2.Parameters.TreeParam;
+                    resourcesStart = map2.ResourcesStart;
+                    p1Spawn = map2.Map.Players[0].StartingPosition;
+                    p2Spawn = map2.Map.Players[1].StartingPosition;
+                }
+                else if (crossOverBound == 3)
+                {
+                    resourcesStart = map2.ResourcesStart;
+                    p1Spawn = map2.Map.Players[0].StartingPosition;
+                    p2Spawn = map2.Map.Players[1].StartingPosition;
+                }
+                else if (crossOverBound == 4)
+                {
+                    p1Spawn = map2.Map.Players[0].StartingPosition;
+                    p2Spawn = map2.Map.Players[1].StartingPosition;
+                }
+                else if (crossOverBound == 5)
+                {
+                    p2Spawn = map2.Map.Players[1].StartingPosition;
+                }
+
+                EvoMapWrapper childMap =
+                    CreateWrappedMap(seed, width, height, mapParameters, resourcesStart, p1Spawn, p2Spawn);
+                childrenList.Add(childMap);
+            }
+        }
+
+        private void Mutate(EvoMapWrapper mapToMutate)
+        {
+            if (YesNoFromRatio(MUTATION_RATE))
+            {
+                mapToMutate.Rating = 0.0f;
+                MapParameters mapParameters = mapToMutate.Parameters;
+                Vector2 resourcesStart = mapToMutate.ResourcesStart;
+                Vector2Int p1Spawn = mapToMutate.Map.Players[0].StartingPosition;
+                Vector2Int p2Spawn = mapToMutate.Map.Players[1].StartingPosition;
+
+                int mutationTarget = Random.Range(1, 6);
+                if (mutationTarget == 1)
+                {
+                    mapParameters.WaterParam = GetRandomFloatInRange(0.0f, 0.50f);
+                }
+                else if (mutationTarget == 2)
+                {
+                    mapParameters.MountainParam = GetRandomFloatInRange(0.50f, 1.00f);
+                }
+                else if (mutationTarget == 3)
+                {
+                    mapParameters.TreeParam = GetRandomFloatInRange(0.0f, 1.0f);
+                }
+                else if (mutationTarget == 4)
+                {
+                    Vector2Int newResourcesStart =
+                        GetRandomVector2D(0, mapToMutate.Map.Width, 0, mapToMutate.Map.Width);
+                    resourcesStart = newResourcesStart;
+                }
+                else if (mutationTarget == 5)
+                {
+                    p1Spawn = GetRandomVector2D(0 + SPAWN_BOUND, width - SPAWN_BOUND, 0 + SPAWN_BOUND,
+                        height - SPAWN_BOUND);
+                }
+                else if (mutationTarget == 6)
+                {
+                    p2Spawn = GetRandomVector2D(0 + SPAWN_BOUND, width - SPAWN_BOUND, 0 + SPAWN_BOUND,
+                        height - SPAWN_BOUND);
+                }
+
+                mapToMutate = CreateWrappedMap(seed, width, height, mapParameters, resourcesStart, p1Spawn, p2Spawn);
             }
         }
 
@@ -239,8 +415,14 @@ namespace MapGeneration
         private int CalculateResourcesRadius()
         {
             int baseRadius = RESOURCES_RADIUS;
-            float radiusFull = baseRadius * (width / 128f);
+            float radiusFull = baseRadius * (width / MapConstants.MAX_MAP_SIZE);
             return Mathf.CeilToInt(radiusFull);
+        }
+
+        private bool YesNoFromRatio(float rate)
+        {
+            int percent = (int) (100 * rate);
+            return Random.Range(0, 100) < percent;
         }
     }
 }

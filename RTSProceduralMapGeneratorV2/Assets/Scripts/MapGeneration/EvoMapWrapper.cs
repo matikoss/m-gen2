@@ -11,17 +11,23 @@ namespace MapGeneration
         private Map map;
         private float rating;
         private MapParameters parameters;
-        private List<MapNode> CalculatedDistancesForPlayerOne;
-        private List<MapNode> CalculatedDistancesForPlayerTwo;
+        private List<MapNode> calculatedDistancesForPlayerOne;
+        private List<MapNode> calculatedDistancesForPlayerTwo;
         private Vector2 resourcesStart;
+        private float p1SpawnHeight, p2SpawnHeight;
+        private float p1SpawnHumidity, p2SpawnHumidity;
 
         public EvoMapWrapper(Map map, MapParameters parameters, Vector2 resourcesStart)
         {
             this.map = map;
             this.parameters = parameters;
-            rating = 0;
-            CalculatedDistancesForPlayerOne = null;
-            CalculatedDistancesForPlayerTwo = null;
+            rating = 0f;
+            calculatedDistancesForPlayerOne = null;
+            calculatedDistancesForPlayerTwo = null;
+            p1SpawnHeight = 0f;
+            p2SpawnHeight = 0f;
+            p1SpawnHumidity = 0f;
+            p2SpawnHumidity = 0f;
             this.resourcesStart = resourcesStart;
         }
 
@@ -48,6 +54,60 @@ namespace MapGeneration
             if (ReferenceEquals(this, other)) return 0;
             if (ReferenceEquals(null, other)) return 1;
             return rating.CompareTo(other.rating);
+        }
+
+        public List<MapNode> CalculatedDistancesForPlayerOne1
+        {
+            get => calculatedDistancesForPlayerOne;
+            set => calculatedDistancesForPlayerOne = value;
+        }
+
+        public List<MapNode> CalculatedDistancesForPlayerTwo1
+        {
+            get => calculatedDistancesForPlayerTwo;
+            set => calculatedDistancesForPlayerTwo = value;
+        }
+
+        public Vector2 ResourcesStart
+        {
+            get => resourcesStart;
+            set => resourcesStart = value;
+        }
+
+        public List<MapNode> CalculatedDistancesForPlayerOne
+        {
+            get => calculatedDistancesForPlayerOne;
+            set => calculatedDistancesForPlayerOne = value;
+        }
+
+        public List<MapNode> CalculatedDistancesForPlayerTwo
+        {
+            get => calculatedDistancesForPlayerTwo;
+            set => calculatedDistancesForPlayerTwo = value;
+        }
+
+        public float P1SpawnHeight
+        {
+            get => p1SpawnHeight;
+            set => p1SpawnHeight = value;
+        }
+
+        public float P2SpawnHeight
+        {
+            get => p2SpawnHeight;
+            set => p2SpawnHeight = value;
+        }
+
+        public float P1SpawnHumidity
+        {
+            get => p1SpawnHumidity;
+            set => p1SpawnHumidity = value;
+        }
+
+        public float P2SpawnHumidity
+        {
+            get => p2SpawnHumidity;
+            set => p2SpawnHumidity = value;
         }
     }
 }
