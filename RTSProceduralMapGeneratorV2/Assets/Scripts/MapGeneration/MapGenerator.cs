@@ -70,7 +70,7 @@ namespace MapGeneration
             DijkstraTest(map);
             CalculateAvgDistanceFromRes(map, map.Players);
             CreateMapInTestMode(map);
-            wme.ExportMapToFile(map, "mapaTestowaZapis", isTestMode);
+            wme.ExportMapToFile(map, OptionsScreen.GetMapName(), isTestMode);
         }
 
         private void GenerateAssymetricMap(int seed)

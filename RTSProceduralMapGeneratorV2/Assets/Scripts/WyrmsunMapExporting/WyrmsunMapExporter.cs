@@ -9,6 +9,7 @@ namespace WyrmsunMapExporting
     public class WyrmsunMapExporter
     {
         private bool IsTestMode;
+        private readonly string MAP_DEFAULT_NAME = "MapaTestowa";
 
         public WyrmsunMapExporter()
         {
@@ -18,6 +19,11 @@ namespace WyrmsunMapExporting
         public void ExportMapToFile(Map map, string mapName, bool isTestMode)
         {
             this.IsTestMode = isTestMode;
+            if (mapName == "")
+            {
+                mapName = MAP_DEFAULT_NAME;
+            }
+
             var dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             int startLumber = map.Players[1].StartWood;
             int startCopper = map.Players[1].StartCopper;

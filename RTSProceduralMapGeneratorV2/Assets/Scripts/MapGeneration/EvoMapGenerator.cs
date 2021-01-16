@@ -26,7 +26,7 @@ namespace MapGeneration
 
         public static readonly int AFTER_SELECTION_SIZE = 25;
         public static readonly float EVO_END_GRADE = 5.9f;
-        public static readonly int EVO_NUMBER = 20;
+        public static readonly int EVO_NUMBER = 10;
 
         public EvoMapGenerator(int seed, int width, int height, int startPopulationSize, int numberOfPlayers,
             PlayerRacesData races, ResourcesData startResources)
@@ -91,7 +91,7 @@ namespace MapGeneration
                 float waterParam, mountainParam, treeParam;
                 waterParam = GetRandomFloatInRange(0.0f, 0.50f);
                 mountainParam = GetRandomFloatInRange(0.50f, 1.0f);
-                treeParam = GetRandomFloatInRange(0.0f, 1.0f);
+                treeParam = GetRandomFloatInRange(0.2f, 0.8f);
                 MapParameters mp = new MapParameters(waterParam, mountainParam, treeParam);
 
                 Vector2Int resourcesStart = GetRandomVector2D(0, width, 0, height);

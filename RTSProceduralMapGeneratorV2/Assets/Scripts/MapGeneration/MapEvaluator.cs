@@ -11,11 +11,11 @@ namespace MapGeneration
         private float[,] elevationMap;
         private float[,] moistureMap;
 
-        private readonly float PLAYER_DISTANCE_WEIGHT = 1.1f;
-        private readonly float RESOURCES_AVG__WEIGHT = 1.2f;
+        private readonly float PLAYER_DISTANCE_WEIGHT = 1.0f;
+        private readonly float RESOURCES_AVG_WEIGHT = 1.2f;
         private readonly float RESOURCES_MIN_MAX_WEIGHT = 1.0f;
-        private readonly float HEIGHT_GRADE_WEIGHT = 1.0f;
-        private readonly float HUMIDITY_GRADE_WEIGHT = 1.0f;
+        private readonly float HEIGHT_GRADE_WEIGHT = 1.1f;
+        private readonly float HUMIDITY_GRADE_WEIGHT = 1.1f;
         private readonly float ABSOLUTE_DISTANCE_WEIGHT = 1.0f;
 
         public MapEvaluator(float[,] elevationMap, float[,] moistureMap)

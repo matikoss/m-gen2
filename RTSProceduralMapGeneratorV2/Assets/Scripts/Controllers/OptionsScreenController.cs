@@ -16,6 +16,7 @@ public class OptionsScreenController : MonoBehaviour
     public InputField WoodInput;
     public InputField CopperInput;
     public InputField StoneInput;
+    public InputField MapNameInput;
 
     public void UpdateSliderNumber()
     {
@@ -121,5 +122,16 @@ public class OptionsScreenController : MonoBehaviour
             Debug.Log(e);
             return -1;
         }
+    }
+
+    public string GetMapName()
+    {
+        string mapName = MapNameInput.text;
+        if (mapName == null)
+        {
+            return "";
+        }
+
+        return mapName;
     }
 }
