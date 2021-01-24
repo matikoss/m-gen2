@@ -12,11 +12,12 @@ namespace MapGeneration
         private float[,] moistureMap;
 
         private readonly float PLAYER_DISTANCE_WEIGHT = 1.0f;
-        private readonly float RESOURCES_AVG_WEIGHT = 1.2f;
+        private readonly float RESOURCES_AVG_WEIGHT = 1.3f;
         private readonly float RESOURCES_MIN_MAX_WEIGHT = 1.0f;
         private readonly float HEIGHT_GRADE_WEIGHT = 1.1f;
         private readonly float HUMIDITY_GRADE_WEIGHT = 1.1f;
         private readonly float ABSOLUTE_DISTANCE_WEIGHT = 1.0f;
+        private readonly float SECOND_RESOURCE_WEIGHT = 1.0f;
 
         public MapEvaluator(float[,] elevationMap, float[,] moistureMap)
         {
@@ -27,10 +28,19 @@ namespace MapGeneration
         public void Evaluate(EvoMapWrapper wrappedMap)
         {
             PrepareMap(wrappedMap);
+            if (wrappedMap.CalculatedDistancesForPlayerOne == null &&
+                wrappedMap.CalculatedDistancesForPlayerTwo == null)
+            {
+                wrappedMap.Rating = -1;
+                return;
+            }
+
             int distanceBetweenPlayers = CalculateDistanceBetweenPlayers(wrappedMap);
             bool resourcesAvailability = CheckIfAllResourcesAvailable2(wrappedMap.Map.Players);
             int[] minMaxP1 = CalculateMinMaxDistanceFromResources(wrappedMap, 0);
             int[] minMaxP2 = CalculateMinMaxDistanceFromResources(wrappedMap, 1);
+            int p1DistToSecondRes = CalculateDistanceToSecondClosestResource(wrappedMap, 0);
+            int p2DistToSecondRes = CalculateDistanceToSecondClosestResource(wrappedMap, 1);
             float heightGrade = 1.0f - (Mathf.Abs(wrappedMap.P1SpawnHeight - wrappedMap.P2SpawnHeight));
             float humidityGrade = 1.0f - (Mathf.Abs(wrappedMap.P1SpawnHumidity - wrappedMap.P2SpawnHumidity));
             float resourcesAvailabilityGrade = 0.0f;
@@ -41,6 +51,27 @@ namespace MapGeneration
 
             float minMaxGrade = 1.0f - (Mathf.Abs(minMaxP1[0] - minMaxP2[0]) / (wrappedMap.Map.Width * 1.0f) +
                                         Mathf.Abs(minMaxP1[1] - minMaxP2[1]) / (wrappedMap.Map.Width * 1.0f));
+
+            float secondResourceDistanceGrade;
+            if (p1DistToSecondRes < 0 || p2DistToSecondRes < 0)
+            {
+                secondResourceDistanceGrade = 0;
+            }
+            else
+            {
+                secondResourceDistanceGrade =
+                    1.0f - ((Math.Abs(p1DistToSecondRes - p2DistToSecondRes) / (wrappedMap.Map.Width * 1.0f)));
+            }
+
+            float avgResourcesDistanceGrade = 1.0f - (Mathf.Abs(
+                (float) (wrappedMap.Map.Players[0].AvgDistanceFromResources -
+                         wrappedMap.Map.Players[1].AvgDistanceFromResources)) / (wrappedMap.Map.Width * 1.0f));
+
+            if (wrappedMap.Map.Players[0].AvgDistanceFromResources <= 0 ||
+                wrappedMap.Map.Players[1].AvgDistanceFromResources <= 0)
+            {
+                avgResourcesDistanceGrade = 0.0f;
+            }
 
             float playerDistanceGrade = 0.0f;
             if (distanceBetweenPlayers != Int32.MaxValue)
@@ -65,7 +96,9 @@ namespace MapGeneration
             float finalGrade = heightGrade * HEIGHT_GRADE_WEIGHT +
                                humidityGrade * HUMIDITY_GRADE_WEIGHT +
                                resourcesAvailabilityGrade +
-                               minMaxGrade * RESOURCES_MIN_MAX_WEIGHT +
+                               avgResourcesDistanceGrade * RESOURCES_AVG_WEIGHT +
+                               // minMaxGrade * RESOURCES_MIN_MAX_WEIGHT +
+                               secondResourceDistanceGrade * SECOND_RESOURCE_WEIGHT +
                                playerDistanceGrade * PLAYER_DISTANCE_WEIGHT +
                                absoluteDistanceGrade * ABSOLUTE_DISTANCE_WEIGHT;
 
@@ -74,12 +107,27 @@ namespace MapGeneration
                 finalGrade = 0;
             }
 
+            wrappedMap.HeightRating = heightGrade * HEIGHT_GRADE_WEIGHT;
+            wrappedMap.HumidityRating = humidityGrade * HUMIDITY_GRADE_WEIGHT;
+            wrappedMap.ResAvailRating = resourcesAvailabilityGrade;
+            wrappedMap.AvgResRating = avgResourcesDistanceGrade * RESOURCES_AVG_WEIGHT;
+            wrappedMap.MINMaxRating = minMaxGrade * RESOURCES_MIN_MAX_WEIGHT;
+            wrappedMap.SecondResourceRating = secondResourceDistanceGrade * SECOND_RESOURCE_WEIGHT;
+            wrappedMap.PDistanceRating = playerDistanceGrade * PLAYER_DISTANCE_WEIGHT;
+            wrappedMap.AbsDistRating = absoluteDistanceGrade * ABSOLUTE_DISTANCE_WEIGHT;
+
             wrappedMap.Rating = finalGrade;
         }
 
         private void PrepareMap(EvoMapWrapper wrappedMap)
         {
             CalculateDistancesOnMap(wrappedMap);
+            if (wrappedMap.CalculatedDistancesForPlayerOne == null &&
+                wrappedMap.CalculatedDistancesForPlayerTwo == null)
+            {
+                return;
+            }
+
             CalculateAvgDistanceFromRes(wrappedMap);
             AssignSpawnHeights(wrappedMap, elevationMap);
             AssignSpawnHumidity(wrappedMap, moistureMap);
@@ -87,11 +135,18 @@ namespace MapGeneration
 
         private void CalculateDistancesOnMap(EvoMapWrapper wrappedMap)
         {
-            DijkstraPathfinder dp = new DijkstraPathfinder();
-            MapGraph graph = wrappedMap.Map.ToMapGraph();
             foreach (var player in wrappedMap.Map.Players)
             {
+                DijkstraPathfinder dp = new DijkstraPathfinder();
+                MapGraph graph = wrappedMap.Map.ToMapGraph();
                 var start = graph.MapNodes.IndexOf(new MapNode(wrappedMap.Map.Map1[player.StartingPosition]));
+                if (start < 0)
+                {
+                    wrappedMap.CalculatedDistancesForPlayerOne = null;
+                    wrappedMap.CalculatedDistancesForPlayerTwo = null;
+                    return;
+                }
+
                 MapNode playerSpawn = graph.MapNodes[start];
                 var distanceList = dp.dijkstraCalculateDistances(graph, playerSpawn);
                 if (player.ID == 0)
@@ -232,6 +287,37 @@ namespace MapGeneration
             }
 
             return new[] {min, max};
+        }
+
+        private int CalculateDistanceToSecondClosestResource(EvoMapWrapper wrappedMap, int playerId)
+        {
+            List<MapNode> nodesToCheck;
+            if (playerId == 0)
+            {
+                nodesToCheck = wrappedMap.CalculatedDistancesForPlayerOne;
+            }
+            else
+            {
+                nodesToCheck = wrappedMap.CalculatedDistancesForPlayerTwo;
+            }
+
+            List<MapNode> playerResources = new List<MapNode>();
+            foreach (var mapNode in nodesToCheck)
+            {
+                if (mapNode.Element.Type == TileType.Copper)
+                {
+                    playerResources.Add(mapNode);
+                }
+            }
+
+            if (playerResources.Count >= 2)
+            {
+                playerResources.Sort();
+                playerResources.Reverse();
+                return playerResources[1].DistanceFromStart;
+            }
+
+            return 0;
         }
 
         private bool CheckIfAllResourcesAvailable(List<Player> players)

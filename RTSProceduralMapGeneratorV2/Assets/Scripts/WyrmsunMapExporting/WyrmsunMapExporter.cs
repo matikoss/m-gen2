@@ -31,6 +31,22 @@ namespace WyrmsunMapExporting
             CreateSmpFile(1, dir, mapName, map);
             CreateSmsFile(map, startLumber, startCopper, startStone, dir, mapName);
         }
+        
+        public void ExportMapToFile(Map map, string mapName, bool isTestMode, string dirName)
+        {
+            this.IsTestMode = isTestMode;
+            if (mapName == "")
+            {
+                mapName = MAP_DEFAULT_NAME;
+            }
+
+            var dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + dirName;
+            int startLumber = map.Players[1].StartWood;
+            int startCopper = map.Players[1].StartCopper;
+            int startStone = map.Players[1].StartStone;
+            CreateSmpFile(1, dir, mapName, map);
+            CreateSmsFile(map, startLumber, startCopper, startStone, dir, mapName);
+        }
 
         private void CreateSmpFile(int pNum, string dir, string mapName, Map map)
         {

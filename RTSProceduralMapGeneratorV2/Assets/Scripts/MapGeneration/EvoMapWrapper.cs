@@ -10,6 +10,16 @@ namespace MapGeneration
     {
         private Map map;
         private float rating;
+
+        private float heightRating,
+            humidityRating,
+            resAvailRating,
+            avgResRating,
+            minMaxRating,
+            secondResourceRating,
+            pDistanceRating,
+            absDistRating;
+
         private MapParameters parameters;
         private List<MapNode> calculatedDistancesForPlayerOne;
         private List<MapNode> calculatedDistancesForPlayerTwo;
@@ -22,12 +32,19 @@ namespace MapGeneration
             this.map = map;
             this.parameters = parameters;
             rating = 0f;
+            humidityRating = 0f;
+            resAvailRating = 0f;
+            avgResRating = 0f;
+            minMaxRating = 0f;
+            pDistanceRating = 0f;
+            absDistRating = 0f;
             calculatedDistancesForPlayerOne = null;
             calculatedDistancesForPlayerTwo = null;
             p1SpawnHeight = 0f;
             p2SpawnHeight = 0f;
             p1SpawnHumidity = 0f;
             p2SpawnHumidity = 0f;
+            secondResourceRating = 0f;
             this.resourcesStart = resourcesStart;
         }
 
@@ -108,6 +125,54 @@ namespace MapGeneration
         {
             get => p2SpawnHumidity;
             set => p2SpawnHumidity = value;
+        }
+
+        public float HeightRating
+        {
+            get => heightRating;
+            set => heightRating = value;
+        }
+
+        public float HumidityRating
+        {
+            get => humidityRating;
+            set => humidityRating = value;
+        }
+
+        public float ResAvailRating
+        {
+            get => resAvailRating;
+            set => resAvailRating = value;
+        }
+
+        public float AvgResRating
+        {
+            get => avgResRating;
+            set => avgResRating = value;
+        }
+
+        public float MINMaxRating
+        {
+            get => minMaxRating;
+            set => minMaxRating = value;
+        }
+
+        public float PDistanceRating
+        {
+            get => pDistanceRating;
+            set => pDistanceRating = value;
+        }
+
+        public float AbsDistRating
+        {
+            get => absDistRating;
+            set => absDistRating = value;
+        }
+
+        public float SecondResourceRating
+        {
+            get => secondResourceRating;
+            set => secondResourceRating = value;
         }
     }
 }

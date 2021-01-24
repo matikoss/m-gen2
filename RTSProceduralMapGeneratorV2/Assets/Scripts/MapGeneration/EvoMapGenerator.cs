@@ -25,8 +25,8 @@ namespace MapGeneration
         public static readonly float CROSSOVER_RATE = 0.9f;
 
         public static readonly int AFTER_SELECTION_SIZE = 25;
-        public static readonly float EVO_END_GRADE = 5.9f;
-        public static readonly int EVO_NUMBER = 10;
+        public static readonly float EVO_END_GRADE = 7.3f;
+        public static readonly int EVO_NUMBER = 5;
 
         public EvoMapGenerator(int seed, int width, int height, int startPopulationSize, int numberOfPlayers,
             PlayerRacesData races, ResourcesData startResources)
@@ -43,11 +43,19 @@ namespace MapGeneration
             InitMaps();
         }
 
-        public Map FindBest()
+        public EvoMapWrapper FindBest()
         {
             EvoGeneration();
-            Debug.Log(listOfMaps[0].Rating);
-            return listOfMaps[0].Map;
+            Debug.Log("Avg distance grade: " + listOfMaps[0].AvgResRating);
+            Debug.Log("Height grade: " + listOfMaps[0].HeightRating);
+            Debug.Log("Humidity grade: " + listOfMaps[0].HumidityRating);
+            Debug.Log("Min max resources grade: " + listOfMaps[0].MINMaxRating);
+            Debug.Log("Second resource distance grade " + listOfMaps[0].SecondResourceRating);
+            Debug.Log("Player distance grade: " + listOfMaps[0].PDistanceRating);
+            Debug.Log("Absolute distance grade: " + listOfMaps[0].AbsDistRating);
+            Debug.Log("Resources availability grade: " + listOfMaps[0].ResAvailRating);
+            Debug.Log("Final grade:" + listOfMaps[0].Rating);
+            return listOfMaps[0];
         }
 
         public void EvoGeneration()

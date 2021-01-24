@@ -18,6 +18,7 @@
             <e p="UIFrameHandler.cs" t="Include" />
           </e>
           <e p="helpers" t="Include">
+            <e p="FinalGradeFIleWriter.cs" t="Include" />
             <e p="PlayerRacesData.cs" t="Include" />
             <e p="ResourcesData.cs" t="Include" />
           </e>

@@ -24,6 +24,7 @@ namespace MapGeneration
         private WyrmsunMapExporter wme;
         private DijkstraPathfinder dp;
         public List<WyrmsunRace> Factions;
+        private bool testMode;
 
 
         public MapGenerator()
@@ -31,6 +32,7 @@ namespace MapGeneration
             noiseGenerator = new NoiseArrayGenerator();
             wme = new WyrmsunMapExporter();
             dp = new DijkstraPathfinder();
+            testMode = false;
         }
 
         // Start is called before the first frame update
@@ -48,6 +50,7 @@ namespace MapGeneration
         public void GenerateMap(int seed, bool isSymmetric, bool isTestMode)
         {
             int numberOfPlayers = 2;
+            this.testMode = isTestMode;
             if (isTestMode)
             {
                 numberOfPlayers++;
@@ -61,7 +64,8 @@ namespace MapGeneration
             }
             else
             {
-                GenerateAssymetricMap(seed);
+                EvoMapWrapper wMap = GenerateAssymetricMap(seed);
+                FinalGradeFileWriter.CreateGradesFile(wMap, OptionsScreen.GetMapName());
             }
 
             mapVisualizer.DrawMap(map);
@@ -70,10 +74,17 @@ namespace MapGeneration
             DijkstraTest(map);
             CalculateAvgDistanceFromRes(map, map.Players);
             CreateMapInTestMode(map);
-            wme.ExportMapToFile(map, OptionsScreen.GetMapName(), isTestMode);
+            if (isTestMode)
+            {
+                CreateMapVariationsForTest(map, OptionsScreen.GetMapName(), isTestMode);
+            }
+            else
+            {
+                wme.ExportMapToFile(map, OptionsScreen.GetMapName(), isTestMode);
+            }
         }
 
-        private void GenerateAssymetricMap(int seed)
+        private EvoMapWrapper GenerateAssymetricMap(int seed)
         {
             PlayerRacesData racesData =
                 new PlayerRacesData(OptionsScreen.GetPlayerRaceById(0), OptionsScreen.GetPlayerRaceById(1));
@@ -81,7 +92,9 @@ namespace MapGeneration
                 OptionsScreen.GetStartCopperAmount(), OptionsScreen.GetStartStoneAmount());
             EvoMapGenerator emg = new EvoMapGenerator(seed, map.Width, map.Height, 100, map.NumberOfPlayers, racesData,
                 startResources);
-            this.map = emg.FindBest();
+            EvoMapWrapper wrappedMap = emg.FindBest();
+            this.map = wrappedMap.Map;
+            return wrappedMap;
         }
 
         // private void GenerateAssymetricMap(int width, int height, int seed, float waterParameter,
@@ -490,6 +503,49 @@ namespace MapGeneration
                 referenceHumanPlayer.StartWood, referenceHumanPlayer.StartCopper, referenceHumanPlayer.StartStone);
             map.Players.Add(testComputerPlayer);
             map.Players[0].SetResources(0, 0, 0);
+        }
+
+        private void CreateMapVariationsForTest(Map testMap, string mapName, bool test)
+        {
+            string fileMapName;
+            string dirName = "\\" + mapName;
+            System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + dirName);
+            fileMapName = mapName + "1";
+            testMap.Players[0].Race = WyrmRaceTypes.DWARVES;
+            testMap.Players[1].Race = WyrmRaceTypes.DWARVES;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "2";
+            testMap.Players[0].Race = WyrmRaceTypes.DWARVES;
+            testMap.Players[1].Race = WyrmRaceTypes.GOBLINS;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "3";
+            testMap.Players[0].Race = WyrmRaceTypes.DWARVES;
+            testMap.Players[1].Race = WyrmRaceTypes.GERMANS;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "4";
+            testMap.Players[0].Race = WyrmRaceTypes.GOBLINS;
+            testMap.Players[1].Race = WyrmRaceTypes.GOBLINS;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "5";
+            testMap.Players[0].Race = WyrmRaceTypes.GOBLINS;
+            testMap.Players[1].Race = WyrmRaceTypes.DWARVES;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "6";
+            testMap.Players[0].Race = WyrmRaceTypes.GOBLINS;
+            testMap.Players[1].Race = WyrmRaceTypes.GERMANS;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "7";
+            testMap.Players[0].Race = WyrmRaceTypes.GERMANS;
+            testMap.Players[1].Race = WyrmRaceTypes.GERMANS;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "8";
+            testMap.Players[0].Race = WyrmRaceTypes.GERMANS;
+            testMap.Players[1].Race = WyrmRaceTypes.DWARVES;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+            fileMapName = mapName + "9";
+            testMap.Players[0].Race = WyrmRaceTypes.GERMANS;
+            testMap.Players[1].Race = WyrmRaceTypes.GOBLINS;
+            wme.ExportMapToFile(testMap, fileMapName, test, dirName);
         }
     }
 }
