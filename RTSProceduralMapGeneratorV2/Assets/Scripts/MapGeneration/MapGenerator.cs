@@ -513,39 +513,95 @@ namespace MapGeneration
             fileMapName = mapName + "1";
             testMap.Players[0].Race = WyrmRaceTypes.DWARVES;
             testMap.Players[1].Race = WyrmRaceTypes.DWARVES;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "2";
             testMap.Players[0].Race = WyrmRaceTypes.DWARVES;
             testMap.Players[1].Race = WyrmRaceTypes.GOBLINS;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "3";
             testMap.Players[0].Race = WyrmRaceTypes.DWARVES;
             testMap.Players[1].Race = WyrmRaceTypes.GERMANS;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "4";
             testMap.Players[0].Race = WyrmRaceTypes.GOBLINS;
             testMap.Players[1].Race = WyrmRaceTypes.GOBLINS;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "5";
             testMap.Players[0].Race = WyrmRaceTypes.GOBLINS;
             testMap.Players[1].Race = WyrmRaceTypes.DWARVES;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "6";
             testMap.Players[0].Race = WyrmRaceTypes.GOBLINS;
             testMap.Players[1].Race = WyrmRaceTypes.GERMANS;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "7";
             testMap.Players[0].Race = WyrmRaceTypes.GERMANS;
             testMap.Players[1].Race = WyrmRaceTypes.GERMANS;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "8";
             testMap.Players[0].Race = WyrmRaceTypes.GERMANS;
             testMap.Players[1].Race = WyrmRaceTypes.DWARVES;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
             fileMapName = mapName + "9";
             testMap.Players[0].Race = WyrmRaceTypes.GERMANS;
             testMap.Players[1].Race = WyrmRaceTypes.GOBLINS;
+            testMap.Players[2].Race = testMap.Players[0].Race;
+            testMap.Players[0].Faction = ApplyDefaultFaction(testMap.Players[0].Race);
+            testMap.Players[1].Faction = ApplyDefaultFaction(testMap.Players[1].Race);
+            testMap.Players[2].Faction = ApplyDefaultFaction(testMap.Players[2].Race);
             wme.ExportMapToFile(testMap, fileMapName, test, dirName);
+        }
+        
+        private string ApplyDefaultFaction(string raceParam)
+        {
+            if (raceParam == null)
+            {
+                return "";
+            }
+
+            if (raceParam == WyrmRaceTypes.GERMANS)
+            {
+                return "ingaevone-tribe";
+            }
+
+            if (raceParam == WyrmRaceTypes.GOBLINS)
+            {
+                return "dreadskull-tribe";
+            }
+
+            return "goldhoof-clan";
         }
     }
 }
